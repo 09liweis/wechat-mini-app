@@ -8,7 +8,7 @@
     </block>
   </view>
   <view class="todos">
-    <view wx:for="{{todos}}" class="todo {{item.status}}">
+    <view wx:for="{{todos}}" wx:key="{{item._id}}" class="todo {{item.status}}" data-todo="{{item}}" bindtap="toDetail">
       <view>{{item.name}}</view>
       <view>{{item.date}}</view>
     </view>

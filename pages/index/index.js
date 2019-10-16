@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    btnSz:'mini',
     todos:[],
     userInfo: {},
     hasUserInfo: false,
@@ -54,13 +55,19 @@ Page({
   getTodos:function() {
     const self = this;
     wx.request({
-      url: 'https://samliweisen.herokuapp.com/api/todos',
+      url: app.globalData.api,
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res) {
         self.setData({todos:res.data});
       }
+    })
+  },
+  toDetail:function(e) {
+    const todo = e.currentTarget.dataset.todo;
+    wx.navigateTo({
+      url: '/pages/detail/detail?id='+todo._id,
     })
   }
 })
