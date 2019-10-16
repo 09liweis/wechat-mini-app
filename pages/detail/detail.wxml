@@ -1,0 +1,7 @@
+<view>
+  <view wx:if="todo">
+    <view>{{todo.name}}</view>
+    <view>{{todo.date}}</view>
+    <view>{{todo.status}}</view>
+  </view>
+</view>
