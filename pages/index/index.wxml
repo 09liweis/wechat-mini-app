@@ -7,9 +7,10 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="todos" wx:for="{{todos}}">
-    <view class="todo">
-      {{item.name}}
+  <view class="todos">
+    <view wx:for="{{todos}}" class="todo {{item.status}}">
+      <view>{{item.name}}</view>
+      <view>{{item.date}}</view>
     </view>
   </view>
 </view>
