@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World Sam',
+    todos:[],
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -16,6 +16,7 @@ Page({
     })
   },
   onLoad: function () {
+    this.getTodos();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -44,11 +45,22 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  getTodos:function() {
+    const self = this;
+    wx.request({
+      url: 'https://samliweisen.herokuapp.com/api/todos',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        self.setData({todos:res.data});
+      }
     })
   }
 })
