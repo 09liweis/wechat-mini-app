@@ -1,11 +1,12 @@
 // pages/form/form.js
+const app = getApp();
+const api = app.globalData.api;
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
   },
 
   /**
@@ -19,7 +20,7 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-
+    this.setEmptyTodo();
   },
 
   /**
@@ -62,5 +63,42 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getEmptyTodo:function() {
+    return {
+      name: '',
+      status: 'pending',
+      date: '',
+      steps: []
+    };
+  },
+  setEmptyTodo:function() {
+    const todo = this.getEmptyTodo();
+    this.setData(todo);
+  },
+  bindDateChange: function (e) {
+    this.setData({
+      date: e.detail.value
+    })
+  },
+  submit:function() {
+    const data = this.data;
+    let todo = this.getEmptyTodo();
+    for (let key in todo) {
+      todo[key] = data[key];
+    }
+    console.log(todo);
+    wx.request({
+      url: api,
+      data:todo,
+      method:'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success(res) {
+        console.log(res);
+        wx.navigateBack({})
+      }
+    })
   }
 })

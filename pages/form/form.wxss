@@ -1,1 +1,7 @@
-/* pages/form/form.wxss */
+.input-group {
+  margin-bottom:10px;
+}
+.input {
+  padding:10px;
+  border:1px solid #ccc;
+}

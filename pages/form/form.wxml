@@ -1,2 +1,19 @@
-<!--pages/form/form.wxml-->
-<text>pages/form/form.wxml</text>
+<view class="container">
+  <view class="input-group">
+    <label>Name</label>
+    <input class="input" value="{{name}}" />
+  </view>
+  <view class="input-group">
+    <label>Status</label>
+    <input class="input" value="{{status}}" />
+  </view>
+  <view class="input-group">
+    <label>Due Date</label>
+    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+      <view class="picker">
+        当前选择: {{date}}
+      </view>
+    </picker>
+  </view>
+  <button bindtap="submit">Submit</button>
+</view>
