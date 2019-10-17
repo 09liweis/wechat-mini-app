@@ -56,11 +56,20 @@ Page({
     const self = this;
     wx.request({
       url: app.globalData.api,
+      method:'GET',
       header: {
         'content-type': 'application/json' // 默认值
       },
+      dataType:'json',
       success(res) {
-        self.setData({todos:res.data});
+        if (res.statusCode == 200) {
+          self.setData({ todos: res.data });
+        } else {
+          console.log(res);
+        }
+      },
+      fail(res) {
+        console.log(res);
       }
     })
   },
@@ -68,6 +77,11 @@ Page({
     const todo = e.currentTarget.dataset.todo;
     wx.navigateTo({
       url: '/pages/detail/detail?id='+todo._id,
+    })
+  },
+  toForm:function() {
+    wx.navigateTo({
+      url: '/pages/form/form',
     })
   }
 })

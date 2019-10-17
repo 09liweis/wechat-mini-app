@@ -13,4 +13,5 @@
       <view>{{item.date}}</view>
     </view>
   </view>
+  <button bindtap="toForm" size="{{btnSz}}" class="add">Add</button>
 </view>
