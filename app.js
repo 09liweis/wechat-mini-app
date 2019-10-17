@@ -35,6 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    api:'https://samliweisen.herokuapp.com/api/todos/'
+    api:'https://samliweisen.herokuapp.com/api/todos/',
+  // api:'https://40be6f621cdf43b78d3827c72b7093c0.vfs.cloud9.us-east-1.amazonaws.com/api/todos/'
   }
 })
