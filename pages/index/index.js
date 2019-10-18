@@ -52,6 +52,9 @@ Page({
       hasUserInfo: true
     })
   },
+  onPullDownRefresh:function(){
+    this.getTodos();
+  },
   getTodos:function() {
     const self = this;
     wx.request({
