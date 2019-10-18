@@ -69,12 +69,15 @@ Page({
       name: '',
       status: 'pending',
       date: '',
-      steps: []
+      steps: [{name:'step1',status:'pending'}]
     };
   },
   setEmptyTodo:function() {
     const todo = this.getEmptyTodo();
     this.setData(todo);
+  },
+  bindNameChange:function(e) {
+    this.setData({name:e.detail.value});
   },
   bindDateChange: function (e) {
     this.setData({
@@ -87,7 +90,11 @@ Page({
     for (let key in todo) {
       todo[key] = data[key];
     }
-    console.log(todo);
+    if (todo.steps.length == 0) {
+      delete todo.steps;
+    } else {
+      todo.steps = JSON.stringify(todo.steps);
+    }
     wx.request({
       url: api,
       data:todo,
@@ -96,7 +103,6 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success(res) {
-        console.log(res);
         wx.navigateBack({})
       }
     })

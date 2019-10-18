@@ -1,7 +1,7 @@
 <view class="container">
   <view class="input-group">
     <label>Name</label>
-    <input class="input" value="{{name}}" />
+    <input class="input" value="{{name}}" bindinput="bindNameChange" />
   </view>
   <view class="input-group">
     <label>Status</label>
