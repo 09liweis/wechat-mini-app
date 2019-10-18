@@ -3,5 +3,6 @@
     <view>{{todo.name}}</view>
     <view>{{todo.date}}</view>
     <view>{{todo.status}}</view>
+    <button bindtap="delTodo" size="mini" data-todo="{{todo}}">Delete</button>
   </view>
 </view>

@@ -74,5 +74,15 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  delTodo: function (e) {
+    const todo = e.currentTarget.dataset.todo;
+    wx.request({
+      url: api+todo._id,
+      method:'DELETE',
+      success(res) {
+        wx.navigateBack({});
+      }
+    })
   }
 })
