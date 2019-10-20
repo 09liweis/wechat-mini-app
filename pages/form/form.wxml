@@ -15,5 +15,19 @@
       </view>
     </picker>
   </view>
+  <view class="input-group">
+    <label>Steps</label>
+    <button>Add Steps</button>
+    <view wx:for="{{steps}}" wx:key="{{item.name}}">
+      <view>{{item.name}}</view>
+    </view>
+  </view>
+  <view class="form-step">
+    <view class="input-group">
+      <label>Name</label>
+      <input class="input" value="{{step.name}}" bindinput="bindStepChange" />
+    </view>
+    <button bindtap="stepSubmit">Add Step</button>
+  </view>
   <button bindtap="submit">Submit</button>
 </view>

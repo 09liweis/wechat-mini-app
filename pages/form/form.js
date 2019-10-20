@@ -69,7 +69,11 @@ Page({
       name: '',
       status: 'pending',
       date: '',
-      steps: [{name:'step1',status:'pending'}]
+      steps: [],
+      step:{
+        name:'',
+        status:'pending'
+      }
     };
   },
   setEmptyTodo:function() {
@@ -84,6 +88,17 @@ Page({
       date: e.detail.value
     })
   },
+  bindStepChange: function (e) {
+    let step = this.data.step;
+    step.name = e.detail.value;
+    this.setData({ step });
+  },
+  stepSubmit:function() {
+    let steps = Object.assign([],this.data.steps);
+    const step = Object.assign({},this.data.step);
+    steps.push(step);
+    this.setData({steps});
+  },
   submit:function() {
     const data = this.data;
     let todo = this.getEmptyTodo();
@@ -95,6 +110,7 @@ Page({
     } else {
       todo.steps = JSON.stringify(todo.steps);
     }
+    delete todo.step;
     wx.request({
       url: api,
       data:todo,
