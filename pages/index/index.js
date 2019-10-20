@@ -53,6 +53,11 @@ Page({
     })
   },
   onPullDownRefresh:function(){
+    wx.showNavigationBarLoading();
+    setTimeout(function(){
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
+    },1500);
     this.getTodos();
   },
   getTodos:function() {
