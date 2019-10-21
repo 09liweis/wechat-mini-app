@@ -53,11 +53,6 @@ Page({
     })
   },
   onPullDownRefresh:function(){
-    wx.showNavigationBarLoading();
-    setTimeout(function(){
-      wx.hideNavigationBarLoading();
-      wx.stopPullDownRefresh();
-    },1500);
     this.getTodos();
   },
   getTodos:function() {
@@ -72,6 +67,7 @@ Page({
       success(res) {
         if (res.statusCode == 200) {
           self.setData({ todos: res.data });
+          wx.stopPullDownRefresh();
         } else {
           console.log(res);
         }
