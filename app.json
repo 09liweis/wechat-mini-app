@@ -6,7 +6,7 @@
     "pages/form/form"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#2e7d32",
     "navigationBarTitleText": "森计划",
     "navigationBarTextStyle": "white"
