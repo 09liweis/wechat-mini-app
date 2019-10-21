@@ -13,7 +13,18 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    const id = options.id;
+    const self = this;
+    wx.request({
+      url: api + id,
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        const todo = res.data;
+        self.setData(todo);
+      }
+    })
   },
 
   /**
@@ -66,6 +77,7 @@ Page({
   },
   getEmptyTodo:function() {
     return {
+      _id:'',
       name: '',
       status: 'pending',
       date: '',
@@ -111,10 +123,16 @@ Page({
       todo.steps = JSON.stringify(todo.steps);
     }
     delete todo.step;
+    let method = 'POST';
+    let url = api;
+    if (todo._id) {
+      method = 'PUT';
+      url = api + todo._id;
+    }
     wx.request({
-      url: api,
+      url,
       data:todo,
-      method:'POST',
+      method,
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },

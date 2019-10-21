@@ -75,6 +75,12 @@ Page({
   onShareAppMessage: function () {
 
   },
+  editTodo:function(e) {
+    const todo = e.currentTarget.dataset.todo;
+    wx.navigateTo({
+      url: '/pages/form/form?id=' + todo._id,
+    })
+  },
   delTodo: function (e) {
     const todo = e.currentTarget.dataset.todo;
     wx.request({

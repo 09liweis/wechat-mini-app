@@ -8,6 +8,7 @@
         <view>{{item.name}}</view>
       </view>
     </view>
+    <button bindtap="editTodo" size="mini" data-todo="{{todo}}">Edit</button>
     <button bindtap="delTodo" size="mini" data-todo="{{todo}}">Delete</button>
   </view>
 </view>
