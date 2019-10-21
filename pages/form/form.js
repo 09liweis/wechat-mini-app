@@ -125,9 +125,11 @@ Page({
     delete todo.step;
     let method = 'POST';
     let url = api;
+    let title = '添加成功';
     if (todo._id) {
       method = 'PUT';
       url = api + todo._id;
+      title = '更新成功';
     }
     wx.request({
       url,
@@ -138,6 +140,11 @@ Page({
       },
       success(res) {
         wx.navigateBack({})
+        wx.showToast({
+          title:title,
+          icon: 'success',
+          duration: 2000
+        });
       }
     })
   }
