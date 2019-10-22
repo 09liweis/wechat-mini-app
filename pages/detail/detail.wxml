@@ -1,8 +1,6 @@
 <view>
   <view wx:if="todo">
-    <view>{{todo.name}}</view>
-    <view>{{todo.date}}</view>
-    <view>{{todo.status}}</view>
+    <todo todo="{{todo}}" page="detail"/>
     <view class="todo__steps" wx:if="{{todo.steps}}">
       <view wx:for="{{todo.steps}}" wx:key="{{item._id}}">
         <view>{{item.name}}</view>
