@@ -64,7 +64,18 @@ Page({
    * Called when user click on the top right corner to share
    */
   onShareAppMessage: function () {
+    const self = this;
+    const todo = self.data.todo;
+    return {
+      title:todo.name,
+      path:'/pages/detail/detail?id='+todo._id,
+      success:function(res) {
+        self.shareClick();
+      },
+      fail:function(res) {
 
+      }
+    }
   },
   getTodo(id) {
     const self = this;
