@@ -17,17 +17,20 @@
   </view>
   <view class="input-group">
     <label>Steps</label>
-    <button>Add Steps</button>
+    <button bindtap="showStepForm">Add Steps</button>
     <view wx:for="{{steps}}" wx:key="{{item.name}}">
       <view>{{item.name}}</view>
     </view>
   </view>
-  <view class="form-step">
+  <modal class="form-step" hidden="{{hiddenmodalput}}" title="添加step" confirm-text="Add Step" cancel-text="取消" bindcancel="cancel" bindconfirm="stepSubmit">
     <view class="input-group">
       <label>Name</label>
       <input class="input" value="{{step.name}}" bindinput="bindStepChange" />
+      <view class="input-group">
+        <label>地点</label>
+        <input class="input" bindinput="searchPlace"/>
+      </view>
     </view>
-    <button bindtap="stepSubmit">Add Step</button>
-  </view>
+  </modal>
   <button bindtap="submit">Submit</button>
 </view>

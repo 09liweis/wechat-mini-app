@@ -1,7 +1,12 @@
+.container {
+  position:relative;
+}
 .input-group {
   margin-bottom:10px;
 }
 .input {
   padding:10px;
   border:1px solid #ccc;
+}
+.form-step {
 }

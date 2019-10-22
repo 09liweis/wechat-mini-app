@@ -7,6 +7,7 @@ Page({
    * Page initial data
    */
   data: {
+    hiddenmodalput:true
   },
 
   /**
@@ -14,6 +15,10 @@ Page({
    */
   onLoad: function (options) {
     const id = options.id;
+    if (!id) {
+      this.setEmptyTodo();
+      return;
+    }
     const self = this;
     wx.request({
       url: api + id,
@@ -105,11 +110,20 @@ Page({
     step.name = e.detail.value;
     this.setData({ step });
   },
+  showStepForm:function() {
+    this.setData({hiddenmodalput:false});
+    console.log(this.data.hiddenmodalput);
+  },
   stepSubmit:function() {
     let steps = Object.assign([],this.data.steps);
     const step = Object.assign({},this.data.step);
     steps.push(step);
-    this.setData({steps});
+    this.setData({steps,hiddenmodalput:true});
+  },
+  cancel: function () {
+    this.setData({
+      hiddenmodalput: true
+    });
   },
   submit:function() {
     const data = this.data;
