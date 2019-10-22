@@ -17,22 +17,6 @@
 }
 .todos {
 }
-.todo {
-  box-shadow:0 1px 6px rgba(0,0,0,.117647), 0 1px 4px rgba(0,0,0,.117647);
-  padding:10px;
-  margin-top:10px;
-  border-left-width:5px;
-  border-left-style:solid;
-}
-.todo.done {
-  border-color:green;
-}
-.todo.pending {
-  border-color:red;
-}
-.todo.working {
-  border-color:yellow;
-}
 .add {
   position:fixed;
   bottom:20px;

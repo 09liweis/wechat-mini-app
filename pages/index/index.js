@@ -77,12 +77,6 @@ Page({
       }
     })
   },
-  toDetail:function(e) {
-    const todo = e.currentTarget.dataset.todo;
-    wx.navigateTo({
-      url: '/pages/detail/detail?id='+todo._id,
-    })
-  },
   toForm:function() {
     wx.navigateTo({
       url: '/pages/form/form',
