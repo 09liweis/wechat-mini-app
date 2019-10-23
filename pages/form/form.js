@@ -1,4 +1,4 @@
-// pages/form/form.js
+var amapFile = require('../../libs/amap-wx.js');
 const app = getApp();
 const api = app.globalData.api;
 Page({
@@ -7,13 +7,16 @@ Page({
    * Page initial data
    */
   data: {
-    hiddenmodalput:true
+    hiddenmodalput:true,
+    lat:'',
+    lng:''
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    this.getUserLocation();
     const id = options.id;
     if (!id) {
       this.setEmptyTodo();
@@ -80,6 +83,38 @@ Page({
   onShareAppMessage: function () {
 
   },
+  getUserLocation:function() {
+    const self = this;
+    wx.authorize({
+      scope: 'scope.userLocation',
+      success: (res) => {
+        wx.getLocation({
+          success: function (res) {
+            const lat = res.latitude;
+            const lng = res.longitude;
+            self.setData({lat,lng});
+            // self.setMap();
+          },
+        })
+      },
+      fail: (res) => {
+        console.log('失败：', res)
+      },
+    });
+  },
+  setMap:function() {
+    var myAmapFun = new amapFile.AMapWX({ key: app.globalData.amapKey });
+    myAmapFun.getPoiAround({
+      success: function (data) {
+        console.log(data);
+        //成功回调
+      },
+      fail: function (info) {
+        //失败回调
+        console.log(info)
+      }
+    })
+  },
   getEmptyTodo:function() {
     return {
       _id:'',
@@ -112,7 +147,6 @@ Page({
   },
   showStepForm:function() {
     this.setData({hiddenmodalput:false});
-    console.log(this.data.hiddenmodalput);
   },
   stepSubmit:function() {
     let steps = Object.assign([],this.data.steps);

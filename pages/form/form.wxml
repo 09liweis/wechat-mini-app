@@ -29,6 +29,7 @@
       <view class="input-group">
         <label>地点</label>
         <input class="input" bindinput="searchPlace"/>
+        <map id="map" scale="3" longitude="{{lng}}" latitude="{{lat}}"></map>
       </view>
     </view>
   </modal>
