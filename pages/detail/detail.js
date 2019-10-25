@@ -96,6 +96,22 @@ Page({
       url: '/pages/form/form?id=' + todo._id,
     })
   },
+  updateStep:function(e) {
+    const self = this;
+    let todo = this.data.todo;
+    let step = e.currentTarget.dataset.step;
+    const idx = e.currentTarget.dataset.idx;
+    step.status = 'done';
+    todo.steps[idx] = step;
+    wx.request({
+      url: api+todo._id,
+      method:'PUT',
+      data:todo,
+      success(res) {
+        self.setData({todo});
+      }
+    })
+  },
   delTodo: function (e) {
     const todo = e.currentTarget.dataset.todo;
     wx.request({
