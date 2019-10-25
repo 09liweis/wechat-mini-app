@@ -140,6 +140,12 @@ Page({
       date: e.detail.value
     })
   },
+  radioChange:function(e) {
+    this.setData({
+      status:e.detail.value
+    });
+    console.log(this.data);
+  },
   bindStepChange: function (e) {
     let step = this.data.step;
     step.name = e.detail.value;

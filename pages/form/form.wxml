@@ -5,7 +5,17 @@
   </view>
   <view class="input-group">
     <label>Status</label>
-    <input class="input" value="{{status}}" />
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" >
+          Pending<radio value="pending" checked="true"/>
+        </label>
+        <label class="radio" >
+          Working<radio value="working" checked=""/>
+        </label>
+        <label class="radio" >
+          Done<radio value="done" checked=""/>
+        </label>
+      </radio-group>
   </view>
   <view class="input-group">
     <label>Due Date</label>
