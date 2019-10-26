@@ -144,7 +144,6 @@ Page({
     this.setData({
       status:e.detail.value
     });
-    console.log(this.data);
   },
   bindStepChange: function (e) {
     let step = this.data.step;
