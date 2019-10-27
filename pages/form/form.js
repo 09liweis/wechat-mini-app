@@ -93,7 +93,7 @@ Page({
             const lat = res.latitude;
             const lng = res.longitude;
             self.setData({lat,lng});
-            // self.setMap();
+            self.setMap();
           },
         })
       },

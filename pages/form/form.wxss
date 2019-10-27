@@ -10,3 +10,6 @@
 }
 .form-step {
 }
+#map {
+  width: 100%;
+}
