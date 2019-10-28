@@ -3,10 +3,7 @@
     <todo todo="{{todo}}" page="detail"/>
     <view class="todo__steps" wx:if="{{todo.steps}}">
       <view class="todo__step" wx:for="{{todo.steps}}" wx:key="{{item._id}}">
-        <view>
-          <view class="step__name">{{item.name}}</view>
-          <view>{{item.status}}</view>
-        </view>
+        <todo todo="{{item}}" page="detail"/>
         <view>
           <button bindtap="updateStep" data-step="{{item}}" data-idx="{{index}}" size="mini">完成</button>
         </view>

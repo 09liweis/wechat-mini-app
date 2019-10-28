@@ -15,7 +15,9 @@
 .userinfo-nickname {
   color: #aaa;
 }
-.todos {
+.todo {
+  box-shadow:0 1px 6px rgba(0,0,0,.117647), 0 1px 4px rgba(0,0,0,.117647);
+  margin-top:10px;
 }
 .add {
   position:fixed;
