@@ -8,8 +8,8 @@
     </block>
   </view>
   <view class="todos">
-    <view class="todo" wx:for="{{todos}}">
-      <todo wx:key="{{item._id}}" todo="{{item}}" page="list"></todo>
+    <view class="todo" wx:for="{{todos}}" wx:key="{{item._id}}">
+      <todo todo="{{item}}" page="list"></todo>
     </view>
   </view>
   <button bindtap="toForm" size="{{btnSz}}" class="add">Add</button>
