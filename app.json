@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/detail/detail",
+    "pages/visuals/visuals",
     "pages/form/form"
   ],
   "window": {
@@ -16,5 +17,19 @@
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#f10b2e",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "Todo"
+      },
+      {
+        "pagePath": "pages/visuals/visuals",
+        "text": "森影视"
+      }
+    ]
   }
 }
