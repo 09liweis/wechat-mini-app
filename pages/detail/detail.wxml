@@ -2,7 +2,7 @@
   <view wx:if="todo">
     <todo todo="{{todo}}" page="detail"/>
     <view class="todo__steps" wx:if="{{todo.steps}}">
-      <view class="todo__step" wx:for="{{todo.steps}}" wx:key="{{item._id}}">
+      <view class="todo__step" wx:for="{{todo.steps}}" wx:key="_id">
         <todo todo="{{item}}" page="detail"/>
         <view>
           <button bindtap="updateStep" data-step="{{item}}" data-idx="{{index}}" size="mini">{{item.status == 'pending'?'开始':'完成'}}</button>
