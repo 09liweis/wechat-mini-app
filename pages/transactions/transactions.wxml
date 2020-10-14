@@ -1,9 +1,13 @@
 <!--pages/transactions/transactions.wxml-->
 <view class="transactions">
   <view class="transaction" wx:for="{{transactions}}" wx:key="_id">
-    <text>{{item.price}}</text>
-    <text>{{item.date}}</text>
-    <text>{{item.category}}</text>
-    <text>{{item.title}}</text>
+    <view class="left">
+      <text class="title">{{item.title}}</text>
+      <text class="cat">{{item.category}}</text>
+      <text class="date">{{item.date}}</text>
+    </view>
+    <view class="right">
+      <text class="price">{{item.price}}</text>
+    </view>
   </view>
 </view>
