@@ -69,8 +69,11 @@ Page({
     const self = this;
     const url = 'https://samliweisen.herokuapp.com/api/transactions';
     util.wxRequest(url, 'POST',function(res) {
-      if (res.statsCode == 200) {
-        self.transactions = res.data;
+      console.log(res);
+      if (res.statusCode == 200) {
+        self.setData({transactions:res.data});
+      } else {
+        console.warn('Error');
       }
     });
   }
