@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/detail/detail",
     "pages/visuals/visuals",
-    "pages/form/form"
+    "pages/form/form",
+    "pages/transactions/transactions"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -29,6 +30,10 @@
       {
         "pagePath": "pages/visuals/visuals",
         "text": "森影视"
+      },
+      {
+        "pagePath": "pages/transactions/transactions",
+        "text": "森账单"
       }
     ]
   }
