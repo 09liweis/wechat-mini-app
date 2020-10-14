@@ -1,4 +1,5 @@
 // pages/visuals.js
+const util = require('../../utils/util.js')
 Page({
 
   /**
@@ -12,7 +13,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.getVisuals();
   },
 
   /**
@@ -62,5 +63,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getVisuals: function() {
+    const url = 'https://what-i-watched.herokuapp.com/api/visuals';
+    util.wxRequest(url,function(res) {
+      console.log(res);
+    });
   }
 })
