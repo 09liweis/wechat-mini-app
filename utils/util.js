@@ -14,6 +14,24 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const wxRequest = (url,method='GET',cb) => {
+  wx.request({
+    url,
+    method,
+    header: {
+      'content-type': 'application/json' // 默认值
+    },
+    dataType:'json',
+    success(res) {
+      return cb(res);
+    },
+    fail(res) {
+      return cb(res);
+    }
+  })
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  wxRequest: wxRequest
 }
