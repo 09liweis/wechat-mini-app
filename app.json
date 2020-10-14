@@ -24,17 +24,18 @@
     "selectedColor": "#f10b2e",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "Todo"
-      },
-      {
         "pagePath": "pages/visuals/visuals",
         "text": "森影视"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "Todo"
       },
       {
         "pagePath": "pages/transactions/transactions",
         "text": "森账单"
       }
-    ]
+    ],
+    "current": 0
   }
 }
