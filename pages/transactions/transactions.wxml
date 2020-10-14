@@ -2,5 +2,8 @@
 <view class="transactions">
   <view class="transaction" wx:for="{{transactions}}" wx:key="_id">
     <text>{{item.price}}</text>
+    <text>{{item.date}}</text>
+    <text>{{item.category}}</text>
+    <text>{{item.title}}</text>
   </view>
 </view>
