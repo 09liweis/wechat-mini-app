@@ -1,18 +1,19 @@
 // pages/transactions/transactions.js
+const util = require('../../utils/util.js')
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    transactions:[]
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.getTransactions();
   },
 
   /**
@@ -62,5 +63,15 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getTransactions: function() {
+    const self = this;
+    const url = 'https://samliweisen.herokuapp.com/api/transactions';
+    util.wxRequest(url, 'POST',function(res) {
+      if (res.statsCode == 200) {
+        self.transactions = res.data;
+      }
+    });
   }
 })
