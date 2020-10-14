@@ -1,2 +1,6 @@
 <!--pages/transactions/transactions.wxml-->
-<text>pages/transactions/transactions.wxml</text>
+<view class="transactions">
+  <view class="transaction" wx:for="{{transactions}}" wx:key="_id">
+    <text>{{item.price}}</text>
+  </view>
+</view>
