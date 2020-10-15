@@ -14,13 +14,24 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-const wxRequest = (url,method='GET',cb) => {
+const wxRequest = (url,opt,cb) => {
+  var method = 'GET';
+  var data = {};
+  if (opt) {
+    if (opt.method) {
+      method = opt.method;
+    }
+    if (opt.date) {
+      data.date = opt.date;
+    }
+  }
   wx.request({
     url,
     method,
     header: {
       'content-type': 'application/json' // 默认值
     },
+    data,
     dataType:'json',
     success(res) {
       return cb(res);
