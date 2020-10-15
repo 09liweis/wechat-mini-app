@@ -6,6 +6,7 @@ Page({
    * Page initial data
    */
   data: {
+    date:'',
     transactions:[]
   },
 
@@ -65,10 +66,20 @@ Page({
 
   },
 
+  getDateTime: function(e) {
+    this.setData({date:e.detail.value});
+    this.getTransactions();
+  },
+
   getTransactions: function() {
     const self = this;
+    console.log(this.data.date);
     const url = 'https://samliweisen.herokuapp.com/api/transactions';
-    util.wxRequest(url, 'POST',function(res) {
+    var opt = {
+      method:'POST',
+      date:this.data.date
+    };
+    util.wxRequest(url, opt,function(res) {
       console.log(res);
       if (res.statusCode == 200) {
         self.setData({transactions:res.data});
