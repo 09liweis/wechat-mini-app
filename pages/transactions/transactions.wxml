@@ -1,5 +1,8 @@
 <!--pages/transactions/transactions.wxml-->
 <view class="transactions">
+  <picker mode="date" fields="month" value="{{date}}" bindchange="getDateTime">
+    <view class="selectDate">{{date?date:'Select a date'}}</view>
+  </picker>
   <view class="transaction" wx:for="{{transactions}}" wx:key="_id">
     <view class="left">
       <text class="title">{{item.title}}</text>
