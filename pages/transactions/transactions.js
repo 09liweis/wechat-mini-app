@@ -73,13 +73,16 @@ Page({
 
   getTransactions: function() {
     const self = this;
-    console.log(this.data.date);
+    wx.showLoading({
+      title: '努力加载中',
+    });
     const url = 'https://samliweisen.herokuapp.com/api/transactions';
     var opt = {
       method:'POST',
       date:this.data.date
     };
     util.wxRequest(url, opt,function(res) {
+      wx.hideLoading();
       console.log(res);
       if (res.statusCode == 200) {
         self.setData({transactions:res.data});
