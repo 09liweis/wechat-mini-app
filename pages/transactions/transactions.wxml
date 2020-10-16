@@ -5,6 +5,7 @@
   </picker>
   <view class="transaction" wx:for="{{transactions}}" wx:key="_id">
     <view class="left">
+      <image class="icon" mode="scaleToFill" src="{{item.place.icon}}"></image>
       <text class="title">{{item.title}}</text>
       <text class="cat">{{item.category}}</text>
       <text class="date">{{item.date}}</text>
