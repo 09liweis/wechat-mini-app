@@ -7,7 +7,8 @@ Page({
    */
   data: {
     date:'',
-    transactions:[]
+    transactions:[],
+    total: 0
   },
 
   /**
@@ -49,7 +50,7 @@ Page({
    * Page event handler function--Called when user drop down
    */
   onPullDownRefresh: function () {
-
+    this.getTransactions();
   },
 
   /**
