@@ -72,6 +72,16 @@ Page({
     this.getTransactions();
   },
 
+  handleTransactionsData: function() {
+    const transactions = this.data.transactions;
+    let total = 0;
+    transactions.forEach(t => {
+      total += Math.abs(t.price);
+    });
+    total = total.toFixed(2);
+    this.setData({total});
+  },
+
   getTransactions: function() {
     const self = this;
     wx.showLoading({
@@ -87,6 +97,7 @@ Page({
       console.log(res);
       if (res.statusCode == 200) {
         self.setData({transactions:res.data});
+        self.handleTransactionsData();
       } else {
         console.warn('Error');
       }
