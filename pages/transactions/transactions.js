@@ -7,6 +7,7 @@ Page({
    */
   data: {
     date:'',
+    page: 0,
     transactions:[],
     total: 0
   },
@@ -66,7 +67,7 @@ Page({
    * Called when page reach bottom
    */
   onReachBottom: function () {
-
+    console.log('test');
   },
 
   /**
@@ -83,11 +84,9 @@ Page({
       path,
       success: (res) => {
         console.log('success');
-        console.log(res);
       },
       fail: (res) => {
         console.log('fail');
-        console.log(res);
       }
     }
   },
@@ -115,11 +114,14 @@ Page({
     const url = 'https://samliweisen.herokuapp.com/api/transactions';
     var opt = {
       method:'POST',
-      date:this.data.date
+      data: {
+        date:this.data.date,
+        page: this.data.page
+      }
     };
     util.wxRequest(url, opt,function(res) {
       wx.hideLoading();
-      // console.log(res);
+      console.log(res);
       if (res.statusCode == 200) {
         self.setData({transactions:res.data});
         self.handleTransactionsData();
