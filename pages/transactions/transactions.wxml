@@ -1,9 +1,12 @@
 <!--pages/transactions/transactions.wxml-->
 <view class="transactions">
   <text class="total">${{total}}</text>
-  <picker mode="date" fields="month" value="{{date}}" bindchange="getDateTime">
-    <view class="selectDate">{{date?date:'Select a date'}}</view>
-  </picker>
+  <button size="mini" type="primary" bindtap="showFitlers">过滤</button>
+  <modal class="fitlers" hidden="{{hideFilters}}" title="请选择过滤" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="getTransactions">
+    <picker mode="date" fields="month" value="{{date}}" bindchange="getDateTime">
+      <view class="selectDate">{{date?date:'Select a date'}}</view>
+    </picker>
+  </modal>
   <view class="transaction" wx:for="{{transactions}}" wx:key="_id">
     <view class="left">
       <image class="icon" mode="scaleToFill" src="{{item.place.icon}}"></image>
