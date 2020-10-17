@@ -67,7 +67,12 @@ Page({
    * Called when page reach bottom
    */
   onReachBottom: function () {
-    console.log('test');
+    let {transactions,page} = this.data;
+    if (transactions.length == 10) {
+      page += 1;
+      this.setData({page});
+      this.getTransactions();
+    }
   },
 
   /**
@@ -107,6 +112,7 @@ Page({
   },
 
   getTransactions: function() {
+    let {transactions,date,page} = this.data;
     const self = this;
     wx.showLoading({
       title: '努力加载中',
@@ -115,15 +121,20 @@ Page({
     var opt = {
       method:'POST',
       data: {
-        date:this.data.date,
-        page: this.data.page
+        date,
+        page
       }
     };
     util.wxRequest(url, opt,function(res) {
       wx.hideLoading();
       console.log(res);
       if (res.statusCode == 200) {
-        self.setData({transactions:res.data});
+        if (page > 0) {
+          transactions = transactions.concat(res.data);
+        } else {
+          transactions = res.data;
+        }
+        self.setData({transactions});
         self.handleTransactionsData();
       } else {
         console.warn('Error');
