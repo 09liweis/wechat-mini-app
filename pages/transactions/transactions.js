@@ -9,7 +9,8 @@ Page({
     date:'',
     page: 0,
     transactions:[],
-    total: 0
+    total: 0,
+    hideFilters:true
   },
 
   /**
@@ -98,7 +99,15 @@ Page({
 
   getDateTime: function(e) {
     this.setData({date:e.detail.value});
-    this.getTransactions();
+    // this.getTransactions();
+  },
+
+  showFitlers: function() {
+    this.setData({hideFilters:false});
+  },
+
+  cancel: function() {
+    this.setData({hideFilters:true});
   },
 
   handleTransactionsData: function() {
@@ -127,7 +136,7 @@ Page({
     };
     util.wxRequest(url, opt,function(res) {
       wx.hideLoading();
-      console.log(res);
+      self.setData({hideFilters:true});
       if (res.statusCode == 200) {
         if (page > 0) {
           transactions = transactions.concat(res.data);
