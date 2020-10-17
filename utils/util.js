@@ -21,8 +21,8 @@ const wxRequest = (url,opt,cb) => {
     if (opt.method) {
       method = opt.method;
     }
-    if (opt.date) {
-      data.date = opt.date;
+    if (opt.data) {
+      data = opt.data;
     }
   }
   wx.request({
