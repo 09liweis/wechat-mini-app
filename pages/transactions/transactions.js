@@ -15,6 +15,9 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    console.log(options);
+    const {year,month} = util.getCurrentDate();
+    this.setData({date:`${year}-${month}`});
     this.getTransactions();
   },
 
