@@ -15,9 +15,15 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    console.log(options);
-    const {year,month} = util.getCurrentDate();
-    this.setData({date:`${year}-${month}`});
+    const {date} = options;
+    let currentDate = '';
+    if (date) {
+      currentDate = date;
+    } else {
+      const {year,month} = util.getCurrentDate();
+      currentDate = `${year}-${month}`;
+    }
+    this.setData({date:currentDate});
     this.getTransactions();
   },
 
@@ -67,7 +73,23 @@ Page({
    * Called when user click on the top right corner to share
    */
   onShareAppMessage: function () {
-
+    const date = this.data.date;
+    let path = 'pages/transactions/transactions?';
+    if (date) {
+      path += `date=${date}`;
+    }
+    return {
+      title: date,
+      path,
+      success: (res) => {
+        console.log('success');
+        console.log(res);
+      },
+      fail: (res) => {
+        console.log('fail');
+        console.log(res);
+      }
+    }
   },
 
   getDateTime: function(e) {
@@ -97,7 +119,7 @@ Page({
     };
     util.wxRequest(url, opt,function(res) {
       wx.hideLoading();
-      console.log(res);
+      // console.log(res);
       if (res.statusCode == 200) {
         self.setData({transactions:res.data});
         self.handleTransactionsData();
