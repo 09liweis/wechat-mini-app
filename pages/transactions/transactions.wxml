@@ -1,5 +1,6 @@
 <!--pages/transactions/transactions.wxml-->
 <view class="transactions">
+  <text class="total">${{total}}</text>
   <picker mode="date" fields="month" value="{{date}}" bindchange="getDateTime">
     <view class="selectDate">{{date?date:'Select a date'}}</view>
   </picker>
