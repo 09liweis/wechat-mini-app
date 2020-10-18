@@ -68,6 +68,13 @@ Page({
 
   },
 
+  toDetail: function(e) {
+    const douban_id = e.currentTarget.dataset.doubanid;
+    wx.navigateTo({
+      url: '/pages/visualDetail/visualDetail?douban_id=' + douban_id,
+    })
+  },
+
   getVisuals: function() {
     let url = 'https://what-i-watched.herokuapp.com/api/visuals';
     const {page,limit} = this.data;
@@ -78,6 +85,7 @@ Page({
       if (statusCode == 200) {
         let visuals = [];
         const results = data.results;
+        console.log(results);
         if (page > 1) {
           visuals = self.data.visuals.concat(results);
         } else {
