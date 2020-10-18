@@ -110,6 +110,11 @@ Page({
     this.setData({hideFilters:true});
   },
 
+  confirmFilters:function() {
+    this.setData({page:0});
+    this.getTransactions();
+  },
+
   handleTransactionsData: function() {
     const transactions = this.data.transactions;
     let total = 0;
