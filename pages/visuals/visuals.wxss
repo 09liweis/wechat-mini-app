@@ -1,5 +1,6 @@
 /* pages/visuals.wxss */
 .visualPage {
+  font-size: 14px;
   padding: 0 10px;
   background-color: #ccc;
 }
@@ -9,6 +10,15 @@
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
+  position: relative;
+}
+.progress {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 2px 4px;
+  background-color: chocolate;
+  color: #fff;
 }
 .poster {
   border-radius: 3px;
@@ -18,4 +28,9 @@
 .detail {
   margin-left: 10px;
   flex: 2;
+}
+.title {
+  display: block;
+  font-weight: bold;
+  font-size: 16px;
 }
