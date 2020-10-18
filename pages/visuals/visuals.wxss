@@ -1,1 +1,11 @@
 /* pages/visuals.wxss */
+.visualPage {
+  padding: 0 10px;
+  background-color: #ccc;
+}
+.visualContainer {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
