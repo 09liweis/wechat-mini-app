@@ -4,8 +4,18 @@
   background-color: #ccc;
 }
 .visualContainer {
+  display: flex;
   background-color: #fff;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
+}
+.poster {
+  border-radius: 3px;
+  flex:1;
+  height: 150px;
+}
+.detail {
+  margin-left: 10px;
+  flex: 2;
 }
