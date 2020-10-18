@@ -57,7 +57,8 @@ Page({
    * Called when page reach bottom
    */
   onReachBottom: function () {
-
+    this.setData({page:this.data.page+1});
+    this.getVisuals();
   },
 
   /**
@@ -75,7 +76,14 @@ Page({
     util.wxRequest(url,{},function(res) {
       const {statusCode,data} = res;
       if (statusCode == 200) {
-        self.setData({visuals:data.results});
+        let visuals = [];
+        const results = data.results;
+        if (page > 1) {
+          visuals = self.data.visuals.concat(results);
+        } else {
+          visuals = results;
+        }
+        self.setData({visuals});
       }
     });
   }
