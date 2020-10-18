@@ -1,2 +1,6 @@
 <!--pages/visuals.wxml-->
-<text>pages/visuals.wxml</text>
+<view class="visualPage">
+  <view class="visualContainer" wx:for="{{visuals}}" wx:key="_id">
+    <text>{{item.title}}</text>
+  </view>
+</view>
