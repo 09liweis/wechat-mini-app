@@ -2,7 +2,7 @@
 <view class="transactions">
   <text class="total">${{total}}</text>
   <button size="mini" type="primary" bindtap="showFitlers">过滤</button>
-  <modal class="fitlers" hidden="{{hideFilters}}" title="请选择过滤" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="getTransactions">
+  <modal class="fitlers" hidden="{{hideFilters}}" title="请选择过滤" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirmFilters">
     <picker mode="date" fields="month" value="{{date}}" bindchange="getDateTime">
       <view class="selectDate">{{date?date:'Select a date'}}</view>
     </picker>
