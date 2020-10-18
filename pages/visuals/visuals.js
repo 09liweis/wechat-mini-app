@@ -6,7 +6,9 @@ Page({
    * Page initial data
    */
   data: {
-
+    visuals:[],
+    page:1,
+    limit:10,
   },
 
   /**
@@ -66,9 +68,15 @@ Page({
   },
 
   getVisuals: function() {
-    const url = 'https://what-i-watched.herokuapp.com/api/visuals';
-    util.wxRequest(url,function(res) {
-      console.log(res);
+    let url = 'https://what-i-watched.herokuapp.com/api/visuals';
+    const {page,limit} = this.data;
+    url += `?page=${page}&limit=${limit}`;
+    const self = this;
+    util.wxRequest(url,{},function(res) {
+      const {statusCode,data} = res;
+      if (statusCode == 200) {
+        self.setData({visuals:data.results});
+      }
     });
   }
 })
