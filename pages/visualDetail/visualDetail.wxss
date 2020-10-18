@@ -48,10 +48,17 @@
   overflow-x: auto;
   white-space: nowrap;
 }
-.photo {
+.photos > view {
   display: inline-block;
-  width: 33%;
+  margin-right: 10px;
 }
-.photo image {
+.trailer {
+  width: 217px;
+}
+.photo {
+  width: 115px;
+}
+.photos image {
   width: 100%;
+  height: 115px;
 }
