@@ -44,3 +44,14 @@
 .cast .avt {
   width: 100%;
 }
+.photos {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.photo {
+  display: inline-block;
+  width: 33%;
+}
+.photo image {
+  width: 100%;
+}
