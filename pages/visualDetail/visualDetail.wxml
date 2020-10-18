@@ -1,6 +1,6 @@
 <view class="visualDetail">
   <view wx:if="{{v}}">
-    <view class="basic">
+    <view class="basic block">
       <image mode="widthFix" class="poster" src="{{v.douban_poster}}"></image>
       <view class="info">
         <view class="title">{{v.title}}</view>
@@ -9,6 +9,18 @@
         <view>{{v.countries}}</view>
         <view>{{v.languages}}</view>
         <view>{{v.genres}}</view>
+      </view>
+    </view>
+    <view class="rating block">
+      <view class="num">{{v.douban_rating}}</view>
+      <view class="count">{{v.douban_vote_count}}</view>
+    </view>
+    <view class="block">{{v.summary}}</view>
+    <view class="casts block">
+      <view class="cast" wx:for="{{v.casts}}" wx:key="name">
+        <image class="avt" mode="widthFix" src="{{item.avt}}"></image>
+        <view>{{item.name}}</view>
+        <view>{{item.role}}</view>
       </view>
     </view>
   </view>
