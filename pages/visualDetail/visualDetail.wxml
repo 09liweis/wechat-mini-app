@@ -1,2 +1,15 @@
-<!--pages/visualDetail/visualDetail.wxml-->
-<text>pages/visualDetail/visualDetail.wxml</text>
+<view class="visualDetail">
+  <view wx:if="{{v}}">
+    <view class="basic">
+      <image mode="widthFix" class="poster" src="{{v.douban_poster}}"></image>
+      <view class="info">
+        <view class="title">{{v.title}}</view>
+        <view>{{v.original_title}}</view>
+        <view>{{v.release_dates}}</view>
+        <view>{{v.countries}}</view>
+        <view>{{v.languages}}</view>
+        <view>{{v.genres}}</view>
+      </view>
+    </view>
+  </view>
+</view>
