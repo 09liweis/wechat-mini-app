@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/visuals/visuals",
+    "pages/visualDetail/visualDetail",
     "pages/index/index",
     "pages/logs/logs",
     "pages/detail/detail",
