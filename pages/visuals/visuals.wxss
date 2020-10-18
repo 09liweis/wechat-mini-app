@@ -23,7 +23,6 @@
 .poster {
   border-radius: 3px;
   flex:1;
-  height: 150px;
 }
 .detail {
   margin-left: 10px;
