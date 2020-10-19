@@ -34,9 +34,20 @@
       </view>
     </view>
     <view class="comments block">
-      <view wx:for="{{v.comments}}" wx:key="index" class="comment">
+      <view wx:for="{{v.comments}}" wx:key="index" class="comment" v-if="{{item.text}}">
         <view class="commentAuthor">{{item.author}} {{item.date}}</view>
         <view>{{item.text}}</view>
+      </view>
+    </view>
+    <view class="reviews block">
+      <view wx:for="{{v.reviews}}" wx:key="index" class="review">
+        <view class="reviewTitle">{{item.title}}</view>
+        <view class="reviewAuthor">
+          <image class="reviewAvt" mode="widthFix" src="{{item.avt}}"></image>
+          <text>{{item.author}}</text>
+          <text >{{item.date}}</text>
+        </view>
+        <view class="reviewContent">{{item.content}}</view>
       </view>
     </view>
   </view>

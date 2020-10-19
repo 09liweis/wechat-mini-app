@@ -79,3 +79,18 @@
 .commentAuthor {
   font-weight: bold;
 }
+.review {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #efefef;
+}
+.reviewTitle {
+  font-weight: bold;
+}
+.reviewAvt {
+  width:20px;
+  border-radius: 50%;
+}
+.reivewContent {
+  font-size: 13px;
+}
