@@ -1,4 +1,5 @@
 const { wxRequest } = require('../../utils/util.js');
+const DOUBAN_DETAIL = 'https://samliweisen.herokuapp.com/api/visuals/';
 // pages/visualDetail/visualDetail.js
 Page({
 
@@ -74,7 +75,7 @@ Page({
   },
   getVisualDetail: function() {
     const {douban_id} = this.data;
-    const url = 'https://samliweisen.herokuapp.com/api/visuals/summary';
+    const url = DOUBAN_DETAIL+'summary';
     const self = this;
     this.showLoading();
     wxRequest(url,{method:'POST',data:{douban_id}},function(res){
