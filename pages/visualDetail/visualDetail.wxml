@@ -33,5 +33,11 @@
         <Text>{{item.nm}} {{item.award}}</Text>
       </view>
     </view>
+    <view class="comments block">
+      <view wx:for="{{v.comments}}" wx:key="index" class="comment">
+        <view class="commentAuthor">{{item.author}} {{item.date}}</view>
+        <view>{{item.text}}</view>
+      </view>
+    </view>
   </view>
 </view>
