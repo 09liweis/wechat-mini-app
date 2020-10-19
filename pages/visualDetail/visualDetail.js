@@ -67,14 +67,16 @@ Page({
   onShareAppMessage: function () {
 
   },
+  showLoading: function() {
+    wx.showLoading({
+      title: '加载数据中(^ o ^)',
+    });
+  },
   getVisualDetail: function() {
     const {douban_id} = this.data;
     const url = 'https://samliweisen.herokuapp.com/api/visuals/summary';
     const self = this;
-    wx.showLoading({
-      title: '加载数据中(^ o ^)',
-      mask:true
-    });
+    this.showLoading();
     wxRequest(url,{method:'POST',data:{douban_id}},function(res){
       wx.hideLoading();
       const {statusCode,data} = res;
