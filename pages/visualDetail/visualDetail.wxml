@@ -28,5 +28,10 @@
         <image mode="widthFix" src="{{item.src}}"></image>
       </view>
     </view>
+    <view class="awards block">
+      <view wx:for="{{v.awards}}" wx:key="index" class="award">
+        <Text>{{item.nm}} {{item.award}}</Text>
+      </view>
+    </view>
   </view>
 </view>

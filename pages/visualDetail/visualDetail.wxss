@@ -67,3 +67,6 @@
   width: 100%;
   height: 115px;
 }
+.award {
+  font-size: 14px;
+}
