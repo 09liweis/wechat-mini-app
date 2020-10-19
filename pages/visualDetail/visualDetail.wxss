@@ -33,13 +33,18 @@
   font-size: 26px;
 }
 .casts {
-  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 .cast {
+  width: 100px;
+  display: inline-block;
   margin-right: 5px;
   font-size: 11px;
   text-align: center;
-  flex: 1
+}
+.castText {
+  white-space: normal;
 }
 .cast .avt {
   width: 100%;

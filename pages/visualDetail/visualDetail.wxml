@@ -19,8 +19,8 @@
     <view class="casts block">
       <view class="cast" wx:for="{{v.casts}}" wx:key="name">
         <image class="avt" mode="widthFix" src="{{item.avt}}"></image>
-        <view>{{item.name}}</view>
-        <view>{{item.role}}</view>
+        <view class="castText">{{item.name}}</view>
+        <view class="castText">{{item.role}}</view>
       </view>
     </view>
     <view class="photos block">
