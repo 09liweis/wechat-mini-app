@@ -2,5 +2,6 @@
   "usingComponents": {
     "todo": "/components/todo"
   },
-  "enablePullDownRefresh":true
+  "enablePullDownRefresh":true,
+  "navigationBarTitleText":"Todo"
 }
