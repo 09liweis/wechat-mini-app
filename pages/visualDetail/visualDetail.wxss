@@ -3,6 +3,7 @@
   font-size: 16px;
   padding: 10px;
   background-color: #f6f6f6;
+  position: relative;
 }
 .block {
   padding: 10px;

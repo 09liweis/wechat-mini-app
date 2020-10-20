@@ -23,7 +23,7 @@
         <view class="castText">{{item.role}}</view>
       </view>
     </view>
-    <view class="photos block">
+    <view class="photos block" bindtap="openPhotos">
       <view wx:for="{{v.photos}}" wx:key="index" wx:if="{{item.src}}" class="{{item.tp}}">
         <image mode="widthFix" src="{{item.src}}"></image>
       </view>
