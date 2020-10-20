@@ -59,5 +59,6 @@ const getCurrentDate = () => {
 module.exports = {
   formatTime: formatTime,
   wxRequest: wxRequest,
+  DOUBAN_DETAIL: 'https://samliweisen.herokuapp.com/api/visuals/',
   getCurrentDate: getCurrentDate
 }

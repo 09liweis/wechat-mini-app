@@ -1,6 +1,5 @@
 // pages/visualPhotos/visualPhotos.js
-const { wxRequest } = require('../../utils/util.js');
-const DOUBAN_DETAIL = 'https://samliweisen.herokuapp.com/api/visuals/';
+const { wxRequest,DOUBAN_DETAIL } = require('../../utils/util.js');
 Page({
 
   /**
