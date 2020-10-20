@@ -1,0 +1,7 @@
+<view class="">
+  <view class="overlayPhotos">
+    <view class="overlayPhoto" wx:for="{{photos}}" wx:key="index">
+      <image data-origin="{{item.origin}}" src="{{item.thumb}}" mode="widthFix"></image>
+    </view>
+  </view>
+</view>

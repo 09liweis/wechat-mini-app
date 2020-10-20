@@ -1,0 +1,10 @@
+.overlayPhotos {
+  display: flex;
+  flex-wrap: wrap;
+}
+.overlayPhoto {
+  width: 33.3333%;
+}
+.overlayPhoto image {
+  width: 100%;
+}
