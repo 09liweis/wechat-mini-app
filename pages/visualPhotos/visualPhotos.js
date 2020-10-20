@@ -60,7 +60,8 @@ Page({
    * Called when page reach bottom
    */
   onReachBottom: function () {
-
+    this.setData({page:this.data.page+1});
+    this.getPhotos();
   },
 
   /**
@@ -70,17 +71,23 @@ Page({
 
   },
   getPhotos: function() {
-    const {douban_id} = this.data;
+    const {douban_id,page} = this.data;
     const url = DOUBAN_DETAIL + 'photos';
     const self = this;
-    const data = {douban_id}
+    const data = {douban_id,page}
     wxRequest(url,{method:'POST',data}, function(res) {
       wx.hideLoading();
       const {statusCode,data} = res;
       console.log(statusCode,data);
       if (statusCode == 200) {
-        self.setData({photos:data.photos});
-        console.log(self.data.photos);
+        const photos = data.photos;
+        let currentPhotos = self.data.photos;
+        if (page > 1) {
+          currentPhotos = currentPhotos.concat(photos);
+        } else {
+          currentPhotos = photos;
+        }
+        self.setData({photos:currentPhotos});
       }
     })
   }
