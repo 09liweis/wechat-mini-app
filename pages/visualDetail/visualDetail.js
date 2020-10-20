@@ -73,6 +73,12 @@ Page({
       title: '加载数据中(^ o ^)',
     });
   },
+  openPhotos: function() {
+    const {douban_id} = this.data;
+    wx.navigateTo({
+      url: '/pages/visualPhotos/visualPhotos?douban_id=' + douban_id,
+    })
+  },
   getVisualDetail: function() {
     const {douban_id} = this.data;
     const url = DOUBAN_DETAIL+'summary';
@@ -82,7 +88,7 @@ Page({
       wx.hideLoading();
       const {statusCode,data} = res;
       if (statusCode == 200) {
-        console.log(data);
+        // console.log(data);
         self.setData({v:data});
       }
     });
