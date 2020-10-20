@@ -6,6 +6,8 @@ Page({
    * Page initial data
    */
   data: {
+    dateType:'month',
+    dateTypes:['year','month','day'],
     date:'',
     page: 0,
     transactions:[],
@@ -97,6 +99,10 @@ Page({
     }
   },
 
+  radioChange:function(e) {
+    this.setData({dateType:e.detail.value});
+  },
+
   getDateTime: function(e) {
     this.setData({date:e.detail.value});
     // this.getTransactions();
@@ -136,6 +142,7 @@ Page({
       method:'POST',
       data: {
         date,
+        limit:'all',
         page
       }
     };
