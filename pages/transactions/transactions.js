@@ -125,10 +125,17 @@ Page({
     const transactions = this.data.transactions;
     let total = 0;
     transactions.forEach(t => {
-      total += Math.abs(t.price);
+      var price = Math.abs(t.price);
+      if (t.price < 0) {
+        t.priceType = 'credit';
+        total += price;
+      } else {
+        t.priceType = 'debit';
+      }
+      t.price = price;
     });
     total = total.toFixed(2);
-    this.setData({total});
+    this.setData({total,transactions});
   },
 
   getTransactions: function() {
