@@ -21,7 +21,7 @@
       <text class="date">{{item.date}}</text>
     </view>
     <view class="right">
-      <text class="price">${{item.price*-1}}</text>
+      <text class="price {{item.priceType}}">${{item.price}}</text>
     </view>
   </view>
 </view>
