@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "todo": "/components/todo"
-  },
-  "enablePullDownRefresh":true
-}
