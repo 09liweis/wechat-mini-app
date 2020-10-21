@@ -33,6 +33,9 @@
 .price {
   color: red;
 }
+.price.debit {
+  color: green;
+}
 .icon {
   width: 20px;
   height: 20px;
