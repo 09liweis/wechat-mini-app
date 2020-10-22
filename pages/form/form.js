@@ -1,4 +1,3 @@
-var amapFile = require('../../libs/amap-wx.js');
 const app = getApp();
 const api = app.globalData.api;
 Page({
@@ -103,17 +102,17 @@ Page({
     });
   },
   setMap:function() {
-    var myAmapFun = new amapFile.AMapWX({ key: app.globalData.amapKey });
-    myAmapFun.getPoiAround({
-      success: function (data) {
-        console.log(data);
-        //成功回调
-      },
-      fail: function (info) {
-        //失败回调
-        console.log(info)
-      }
-    })
+    // var myAmapFun = new amapFile.AMapWX({ key: app.globalData.amapKey });
+    // myAmapFun.getPoiAround({
+    //   success: function (data) {
+    //     console.log(data);
+    //     //成功回调
+    //   },
+    //   fail: function (info) {
+    //     //失败回调
+    //     console.log(info)
+    //   }
+    // })
   },
   getEmptyTodo:function() {
     return {
