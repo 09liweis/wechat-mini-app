@@ -1,4 +1,0 @@
-<view class="todo {{todo.status}}" data-todo="{{todo}}" bindtap="toDetail">
-  <view>{{todo.name}}</view>
-  <view>{{todo.date}}</view>
-</view>
