@@ -6,6 +6,7 @@ Page({
   data: {
     btnSz:'mini',
     todos:[],
+    selected:'',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -78,8 +79,17 @@ Page({
     })
   },
   toForm:function() {
-    wx.navigateTo({
-      url: '/pages/form/form',
-    })
-  }
+    const {selected} = this.data;
+    if (selected !== '') {
+      this.setData({selected:''});
+    } else {
+      wx.navigateTo({
+        url: '/pages/form/form',
+      })
+    }
+  },
+  toDetail: function (e) {
+    console.log(e);
+    this.setData({selected:e.currentTarget.dataset.index});
+  },
 })
