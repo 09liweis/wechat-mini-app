@@ -6,7 +6,8 @@ Page({
   data: {
     btnSz:'mini',
     todos:[],
-    selected:'',
+    // selected:'',
+    // animation: null,
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -78,18 +79,27 @@ Page({
       }
     })
   },
-  toForm:function() {
-    const {selected} = this.data;
-    if (selected !== '') {
-      this.setData({selected:''});
-    } else {
-      wx.navigateTo({
-        url: '/pages/form/form',
-      })
-    }
+  toForm:function(e) {
+    const todoId = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/form/form?id'+todoId,
+    })
   },
   toDetail: function (e) {
-    console.log(e);
-    this.setData({selected:e.currentTarget.dataset.index});
+    // const {offsetLeft,offsetTop,dataset} = e.currentTarget;
+    // let {todo, index} = dataset;
+    // todo.index = index;
+    // todo.left = offsetLeft;
+    // todo.top = offsetTop;
+    // let animation = wx.createAnimation({
+    //   duration: 1000,
+    //   delay: 400,
+    //   timingFunction: 'ease'
+    // });
+    // animation.top(0).rotateX('180deg').step();
+    // todo.animation = animation.export();
+    // console.log(todo.animation);
+    // console.log(offsetLeft, offsetTop);
+    // this.setData({selected:todo,animation:animation.export()});
   },
 })

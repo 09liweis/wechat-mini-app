@@ -8,10 +8,10 @@
     </block>
   </view>
   <view class="todos">
-    <view wx:for="{{todos}}" wx:key="_id" class="todo" class="todo {{item.status}} {{selected === index ? 'active': ''}}" data-index="{{index}}" bindtap="toDetail">
+    <view wx:for="{{todos}}" wx:key="_id" class="todo" class="todo {{item.status}}" data-index="{{index}}" data-id="{{_id}}" bindtap="toForm">
       <view>{{item.name}}</view>
       <view>{{item.date}}</view>
     </view>
   </view>
-  <button bindtap="toForm" size="{{btnSz}}" class="add">{{selected === ''?'Add':'Close'}}</button>
+  <button bindtap="toForm" size="{{btnSz}}" class="add">Add</button>
 </view>
