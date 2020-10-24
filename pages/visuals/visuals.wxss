@@ -1,35 +1,35 @@
 /* pages/visuals.wxss */
 .visualPage {
-  font-size: 14px;
-  padding: 0 10px;
+  font-size: 24rpx;
+  padding: 0 20rpx;
   background-color: #ccc;
 }
 .visualContainer {
   display: flex;
   background-color: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
   position: relative;
 }
 .progress {
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 2px 4px;
+  padding: 4rpx 8rpx;
   background-color: chocolate;
   color: #fff;
 }
 .poster {
-  border-radius: 3px;
+  border-radius: 6rpx;
   flex:1;
 }
 .detail {
-  margin-left: 10px;
+  margin-left: 20rpx;
   flex: 2;
 }
 .title {
   display: block;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 36rpx;
 }
