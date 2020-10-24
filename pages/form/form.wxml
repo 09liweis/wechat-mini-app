@@ -20,11 +20,11 @@
     <view class="input-group">
       <label>Name</label>
       <input class="input" value="{{step.name}}" bindinput="bindStepChange" />
-      <view class="input-group">
+      <!-- <view class="input-group">
         <label>地点</label>
         <input class="input" bindinput="searchPlace"/>
         <map id="map" scale="13" longitude="{{lng}}" latitude="{{lat}}"></map>
-      </view>
+      </view> -->
     </view>
   </modal>
   <button bindtap="submit">Submit</button>
