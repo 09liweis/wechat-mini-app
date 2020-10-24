@@ -74,11 +74,17 @@ Page({
     const url = DOUBAN_DETAIL + 'photos';
     const self = this;
     const data = {douban_id,page}
+    wx.showLoading({
+      title: '加载图片',
+    });
     wxRequest(url,{method:'POST',data}, function(res) {
       wx.hideLoading();
       const {statusCode,data} = res;
       console.log(statusCode,data);
       if (statusCode == 200) {
+        wx.setNavigationBarTitle({
+          title: data.title,
+        });
         const photos = data.photos;
         let currentPhotos = self.data.photos;
         if (page > 1) {
