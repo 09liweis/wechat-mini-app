@@ -18,7 +18,7 @@ Page({
   onLoad: function (options) {
     this.getUserLocation();
     const id = options.id;
-    if (!id) {
+    if (id === 'undefined') {
       this.setEmptyTodo();
       return;
     }
@@ -27,6 +27,8 @@ Page({
       const {statusCode, data} = res;
       if (statusCode == 200) {
         self.setData(data);
+      } else {
+        
       }
     })
   },
@@ -35,7 +37,7 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-    this.setEmptyTodo();
+    // this.setEmptyTodo();
   },
 
   /**
