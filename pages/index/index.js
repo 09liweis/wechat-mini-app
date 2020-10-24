@@ -82,7 +82,7 @@ Page({
   toForm:function(e) {
     const todoId = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/form/form?id'+todoId,
+      url: '/pages/form/form?id='+todoId,
     })
   },
   toDetail: function (e) {
