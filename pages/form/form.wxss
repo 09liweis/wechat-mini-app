@@ -2,14 +2,11 @@
   position:relative;
 }
 .input-group {
-  margin-bottom:10px;
+  margin-bottom:20rpx;
 }
 .input {
-  padding:10px;
-  border:1px solid #ccc;
+  padding:20rpx;
+  border:1rpx solid #ccc;
 }
 .form-step {
-}
-#map {
-  width: 100%;
 }

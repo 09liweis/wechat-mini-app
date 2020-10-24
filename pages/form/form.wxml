@@ -3,10 +3,9 @@
     <input placeholder="Write your todo..." class="input" value="{{name}}" bindinput="bindNameChange" />
   </view>
   <view class="input-group">
-    <label>Due Date</label>
     <picker mode="date" value="{{date}}" bindchange="bindDateChange">
       <view class="picker">
-        当前选择: {{date}}
+        Due Date: {{date}}
       </view>
     </picker>
   </view>
