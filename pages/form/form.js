@@ -1,3 +1,4 @@
+const { wxRequest } = require('../../utils/util.js');
 const app = getApp();
 const api = app.globalData.api;
 Page({
@@ -22,14 +23,10 @@ Page({
       return;
     }
     const self = this;
-    wx.request({
-      url: api + id,
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
-        const todo = res.data;
-        self.setData(todo);
+    wxRequest(api+id,{},function(res) {
+      const {statusCode, data} = res;
+      if (statusCode == 200) {
+        self.setData(data);
       }
     })
   },
@@ -138,11 +135,6 @@ Page({
     this.setData({
       date: e.detail.value
     })
-  },
-  radioChange:function(e) {
-    this.setData({
-      status:e.detail.value
-    });
   },
   bindStepChange: function (e) {
     let step = this.data.step;

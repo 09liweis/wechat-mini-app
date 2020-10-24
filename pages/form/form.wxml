@@ -1,21 +1,6 @@
 <view class="container">
   <view class="input-group">
-    <label>Name</label>
-    <input class="input" value="{{name}}" bindinput="bindNameChange" />
-  </view>
-  <view class="input-group">
-    <label>Status</label>
-      <radio-group class="radio-group" bindchange="radioChange">
-        <label class="radio" >
-          Pending<radio value="pending" checked="true"/>
-        </label>
-        <label class="radio" >
-          Working<radio value="working" checked=""/>
-        </label>
-        <label class="radio" >
-          Done<radio value="done" checked=""/>
-        </label>
-      </radio-group>
+    <input placeholder="Write your todo..." class="input" value="{{name}}" bindinput="bindNameChange" />
   </view>
   <view class="input-group">
     <label>Due Date</label>
@@ -28,7 +13,7 @@
   <view class="input-group">
     <label>Steps</label>
     <button bindtap="showStepForm">Add Steps</button>
-    <view wx:for="{{steps}}" wx:key="{{item.name}}">
+    <view wx:for="{{steps}}" wx:key="name">
       <view>{{item.name}}</view>
     </view>
   </view>
