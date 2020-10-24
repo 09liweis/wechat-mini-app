@@ -25,8 +25,10 @@ Page({
     const self = this;
     wxRequest(api+id,{},function(res) {
       const {statusCode, data} = res;
+      let todo = data;
       if (statusCode == 200) {
-        self.setData(data);
+        todo.step = {name:''};
+        self.setData(todo);
       } else {
         
       }
