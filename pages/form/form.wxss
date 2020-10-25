@@ -8,21 +8,17 @@
   padding:20rpx;
   border:1rpx solid #ccc;
 }
-.form-step {
-}
 .btn-add-step {
-  float: right;
+  
 }
 .step {
+  box-sizing: border-box;
   color: #cc4101;
   font-size: 35rpx;
   padding: 15rpx;
-  border: 5rpx solid #ccc;
+  border: 2rpx solid #ccc;
   margin-bottom: 20rpx;
-  display: flex;
-  justify-content: space-between;
   width: 100%;
-  align-items: center;
 }
 .deleteStep {
   margin: 0;
