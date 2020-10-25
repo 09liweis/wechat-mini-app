@@ -10,3 +10,13 @@
 }
 .form-step {
 }
+.btn-add-step {
+  float: right;
+}
+.step {
+  color: #0d9900;
+  font-size: 35rpx;
+  padding: 15rpx;
+  border: 5rpx solid #ccc;
+  margin-bottom: 20rpx;
+}
