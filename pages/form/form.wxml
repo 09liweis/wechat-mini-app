@@ -11,8 +11,8 @@
   </view>
   <view class="input-group">
     <label>Steps</label>
-    <button bindtap="showStepForm">Add Steps</button>
-    <view wx:for="{{steps}}" wx:key="name">
+    <button class="btn-add-step" size="mini" type="primary" bindtap="showStepForm">Add Steps</button>
+    <view class="step" wx:for="{{steps}}" wx:key="name">
       <view>{{item.name}}</view>
     </view>
   </view>
