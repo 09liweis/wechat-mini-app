@@ -154,11 +154,15 @@ Page({
       return cb();
     } else {
       const url = `${api}${todoId}/update_step`;
-      console.log(url);
-      wxRequest(url,{method:'POST',data:step},function(res) {
+      let data = {step};
+      wxRequest(url,{method:'POST',data},function(res) {
         cb();
       });
     }
+  },
+  deleteStep(e) {
+    const {idx} = e.currentTarget.dataset;
+    console.log(idx);
   },
   stepSubmit:function() {
     let todoId = this.data._id;
