@@ -17,7 +17,7 @@ Page({
    */
   onLoad: function (options) {
     this.getUserLocation();
-    const id = options.id;
+    const id = options.id || '5f93a447d99ebe000466e661';
     if (id === 'undefined') {
       this.setEmptyTodo();
       return;
@@ -26,6 +26,7 @@ Page({
     wxRequest(api+id,{},function(res) {
       const {statusCode, data} = res;
       let todo = data;
+      console.log(todo);
       if (statusCode == 200) {
         todo.step = {name:''};
         self.setData(todo);
@@ -148,11 +149,26 @@ Page({
   showStepForm:function() {
     this.setData({hiddenmodalput:false});
   },
+  updateStep(step,todoId,cb) {
+    if (!todoId) {
+      return cb();
+    } else {
+      const url = `${api}${todoId}/update_step`;
+      console.log(url);
+      wxRequest(url,{method:'POST',data:step},function(res) {
+        cb();
+      });
+    }
+  },
   stepSubmit:function() {
+    let todoId = this.data._id;
     let steps = Object.assign([],this.data.steps);
     const step = Object.assign({},this.data.step);
-    steps.push(step);
-    this.setData({steps,hiddenmodalput:true});
+    const self = this;
+    this.updateStep(step,todoId,function() {
+      steps.push(step);
+      self.setData({steps,hiddenmodalput:true});
+    })
   },
   cancel: function () {
     this.setData({
