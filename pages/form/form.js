@@ -161,8 +161,20 @@ Page({
     }
   },
   deleteStep(e) {
-    const {idx} = e.currentTarget.dataset;
-    console.log(idx);
+    const todoId = this.data._id;
+    let steps = this.data.steps;
+    const {idx,step} = e.currentTarget.dataset;
+    const url = `${api}${todoId}/update_step`;
+    const data = {step,mode:'delete'}
+    const self = this;
+    wxRequest(url,{method:'POST',data},function(res) {
+      const {statusCode} = res;
+      if (statusCode == 200) {
+        steps.splice(idx,1);
+        self.setData({steps});
+      }
+    });
+    
   },
   stepSubmit:function() {
     let todoId = this.data._id;
