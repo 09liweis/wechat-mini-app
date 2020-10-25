@@ -14,6 +14,7 @@
     <button class="btn-add-step" size="mini" type="primary" bindtap="showStepForm">Add Steps</button>
     <view class="step" wx:for="{{steps}}" wx:key="name">
       <view>{{item.name}}</view>
+      <button bindtap="deleteStep" data-idx="{{index}}" type="warn" size="mini" class="deleteStep">Delete</button>
     </view>
   </view>
   <modal class="form-step" hidden="{{hiddenmodalput}}" title="添加step" confirm-text="Add Step" cancel-text="取消" bindcancel="cancel" bindconfirm="stepSubmit">
