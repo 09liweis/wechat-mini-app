@@ -176,6 +176,9 @@ Page({
     });
     
   },
+  longTapStep:function(e) {
+    console.log('long tap step');
+  },
   stepSubmit:function() {
     let todoId = this.data._id;
     let steps = Object.assign([],this.data.steps);
