@@ -23,6 +23,10 @@
   border-left-style:solid;
   transition: 0.3s;
 }
+.todo-hover {
+  opacity: 0.8;
+  background-color: rgb(230, 230, 230);
+}
 .todo.active {
   position: absolute;
   /* top: 0; */
