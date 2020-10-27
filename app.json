@@ -12,7 +12,8 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#2e7d32",
     "navigationBarTitleText": "森计划",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh":true
   },
   "sitemapLocation": "sitemap.json",
   "permission": {
