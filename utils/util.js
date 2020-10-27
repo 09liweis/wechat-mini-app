@@ -14,6 +14,14 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const showToast = ({title='Success',icon='success'}) => {
+  wx.showToast({
+    title,
+    icon,
+    duration: 1000
+  });
+}
+
 const wxRequest = (url,opt,cb) => {
   var method = 'GET';
   var data = {};
@@ -60,5 +68,6 @@ module.exports = {
   formatTime: formatTime,
   wxRequest: wxRequest,
   DOUBAN_DETAIL: 'https://samliweisen.herokuapp.com/api/visuals/',
-  getCurrentDate: getCurrentDate
+  getCurrentDate: getCurrentDate,
+  showToast: showToast
 }
