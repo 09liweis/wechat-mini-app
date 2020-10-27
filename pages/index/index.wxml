@@ -8,10 +8,16 @@
     </block>
   </view>
   <view class="todos">
-    <view wx:for="{{todos}}" wx:key="_id" class="todo" class="todo {{item.status}}" data-index="{{index}}" data-id="{{item._id}}" bindtap="toForm">
+    <view wx:for="{{todos}}" wx:key="_id" class="todo" class="todo {{item.status}}" data-index="{{index}}" data-id="{{item._id}}" bindtap="toForm" bindlongpress="longPress" >
       <view>{{item.name}}</view>
       <view>{{item.date}}</view>
     </view>
   </view>
   <button bindtap="toForm" size="{{btnSz}}" class="add">Add</button>
+  <view class="todoOptionView {{showOption?'active':''}}" style="left:{{optionView.left}}px;top:{{optionView.top}}px">
+    <view class="option" bindtap="deleteTodo">Delete</view>
+  </view>
+  <block wx:if="{{showOption}}">
+    <view class="todoOptionViewBackdrop" bindtap="hideTodoOptionView"></view>
+  </block>
 </view>
