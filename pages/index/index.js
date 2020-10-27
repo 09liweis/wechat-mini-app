@@ -6,6 +6,11 @@ Page({
   data: {
     btnSz:'mini',
     todos:[],
+    showOption:false,
+    optionView:{
+      left: null,
+      top: null
+    },
     // selected:'',
     // animation: null,
     userInfo: {},
@@ -84,6 +89,14 @@ Page({
     wx.navigateTo({
       url: '/pages/form/form?id='+todoId,
     })
+  },
+  longPress:function(e) {
+    const {x,y} = e.detail;
+    console.log(x,y);
+    this.setData({showOption:true,optionView:{left:x,top:y}});
+  },
+  hideTodoOptionView:function() {
+    this.setData({showOption:false});
   },
   toDetail: function (e) {
     // const {offsetLeft,offsetTop,dataset} = e.currentTarget;
