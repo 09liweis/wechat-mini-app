@@ -13,7 +13,7 @@
       <view>{{item.date}}</view>
     </view>
   </view>
-  <button bindtap="toForm" size="{{btnSz}}" class="add">Add</button>
+  <view bindtap="toForm" id="add-btn">+</view>
   <view class="todoOptionView {{showOption?'active':''}}" style="left:{{optionView.left}}px;top:{{optionView.top}}px">
     <view class="option" bindtap="deleteTodo">Delete</view>
   </view>
