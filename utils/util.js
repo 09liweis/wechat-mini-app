@@ -17,8 +17,7 @@ const formatNumber = n => {
 const showToast = ({title='Success',icon='success'}) => {
   wx.showToast({
     title,
-    icon,
-    duration: 1000
+    icon
   });
 }
 
