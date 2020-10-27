@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText":"森影视"
+  "navigationBarTitleText":"森影视",
+  "enablePullDownRefresh":true
 }
