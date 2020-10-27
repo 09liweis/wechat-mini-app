@@ -8,9 +8,6 @@
   padding:20rpx;
   border:1rpx solid #ccc;
 }
-.btn-add-step {
-  
-}
 .step {
   box-sizing: border-box;
   color: #cc4101;
