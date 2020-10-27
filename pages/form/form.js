@@ -1,4 +1,4 @@
-const { wxRequest } = require('../../utils/util.js');
+const { wxRequest,showToast } = require('../../utils/util.js');
 const app = getApp();
 const api = app.globalData.api;
 Page({
@@ -185,6 +185,7 @@ Page({
     const step = Object.assign({},this.data.step);
     const self = this;
     this.updateStep(step,todoId,function() {
+      showToast({title:'添加成功'});
       steps.push(step);
       self.setData({steps,hiddenmodalput:true});
     })
