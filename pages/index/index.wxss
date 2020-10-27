@@ -54,11 +54,19 @@
 .todo.working {
   border-color:yellow;
 }
-.add {
+#add-btn {
+  font-size: 50rpx;
   position:fixed;
-  bottom:20rpx;
-  right:20rpx;
+  bottom:40rpx;
+  right:40rpx;
+  width: 80rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 50%;
   z-index: 2;
+  background-color: #33691e;
+  color: #fff;
 }
 .todoOptionView {
   padding: 20rpx;
