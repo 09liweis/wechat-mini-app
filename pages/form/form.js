@@ -218,6 +218,9 @@ Page({
     wxRequest(url,{method,data},function(res) {
       const {statusCode} = res;
       if (statusCode == 200) {
+        const pages = getCurrentPages();
+        const parent = pages[0];
+        parent.getTodos();
         wx.navigateBack({})
         showToast({
           title:title,
