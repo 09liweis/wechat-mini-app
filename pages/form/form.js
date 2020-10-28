@@ -215,21 +215,15 @@ Page({
       url = api + todo._id;
       title = '更新成功';
     }
-    wx.request({
-      url,
-      data:todo,
-      method,
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success(res) {
+    wxRequest(url,{method,data},function(res) {
+      const {statusCode} = res;
+      if (statusCode == 200) {
         wx.navigateBack({})
-        wx.showToast({
+        showToast({
           title:title,
           icon: 'success',
-          duration: 2000
         });
       }
-    })
+    });
   }
 })
