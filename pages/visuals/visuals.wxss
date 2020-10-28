@@ -12,6 +12,10 @@
   border-radius: 10rpx;
   position: relative;
 }
+.visual-hover {
+  opacity: 0.7;
+  background-color: honeydew;
+}
 .progress {
   position: absolute;
   bottom: 0;
