@@ -1,5 +1,5 @@
 <view class="visualDetail">
-  <view wx:if="{{v}}">
+  <block wx:if="{{v}}">
     <view class="basic block">
       <image mode="widthFix" class="poster" src="{{v.douban_poster}}"></image>
       <view class="info">
@@ -19,8 +19,10 @@
     <view class="casts block">
       <view class="cast" wx:for="{{v.casts}}" wx:key="name">
         <image class="avt" mode="widthFix" src="{{item.avt}}"></image>
-        <view class="castText">{{item.name}}</view>
-        <view class="castText">{{item.role}}</view>
+        <view class="castText">
+          <view class="name">{{item.name}}</view>
+          <view class="role">{{item.role}}</view>
+        </view>
       </view>
     </view>
     <view class="photos block" bindtap="openPhotos">
@@ -50,5 +52,5 @@
         <view class="reviewContent">{{item.content}}</view>
       </view>
     </view>
-  </view>
+  </block>
 </view>

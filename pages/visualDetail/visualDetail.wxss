@@ -1,13 +1,13 @@
 /* pages/visualDetail/visualDetail.wxss */
 .visualDetail {
-  font-size: 16px;
-  padding: 10px;
+  font-size: 26rpx;
+  padding: 20rpx;
   background-color: #f6f6f6;
   position: relative;
 }
 .block {
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
   background-color: #fff;
 }
 .basic {
@@ -15,14 +15,14 @@
 }
 .poster {
   flex:1;
-  margin-right: 10px;
+  margin-right: 20rpx;
 }
 .info {
   flex:2;
-  font-size: 12px;
+  font-size: 24rpx;
 }
 .title {
-  font-size: 16px;
+  font-size: 32rpx;
   font-weight: bold;
 }
 .rating {
@@ -31,20 +31,32 @@
 .rating .num {
   font-weight: bold;
   color: #FFAC2C;
-  font-size: 26px;
+  font-size: 32rpx;
 }
 .casts {
   overflow-x: auto;
   white-space: nowrap;
 }
 .cast {
-  width: 100px;
+  width: 200rpx;
   display: inline-block;
-  margin-right: 5px;
-  font-size: 11px;
+  margin-right: 10rpx;
+  font-size: 20rpx;
   text-align: center;
+  position: relative;
 }
 .castText {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 20rpx;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.castText .role {
   white-space: normal;
 }
 .cast .avt {
@@ -59,23 +71,23 @@
   margin-right: 10px;
 }
 .trailer {
-  width: 217px;
+  width: 432rpx;
 }
 .photo {
-  width: 115px;
+  width: 230rpx;
 }
 .photos image {
   width: 100%;
-  height: 115px;
+  height: 230rpx;
 }
 .award {
-  font-size: 14px;
+  font-size: 28rpx;
 }
 .comment {
-  font-size: 14px;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #efefef;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 2rpx solid #efefef;
 }
 .commentAuthor {
   font-weight: bold;
@@ -89,9 +101,9 @@
   font-weight: bold;
 }
 .reviewAvt {
-  width:20px;
+  width:20rpx;
   border-radius: 50%;
 }
 .reivewContent {
-  font-size: 13px;
+  font-size: 13rpx;
 }
