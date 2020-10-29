@@ -31,7 +31,7 @@
 .rating .num {
   font-weight: bold;
   color: #FFAC2C;
-  font-size: 32rpx;
+  font-size: 50rpx;
 }
 .casts {
   overflow-x: auto;
@@ -93,16 +93,21 @@
   font-weight: bold;
 }
 .review {
-  margin-bottom: 10px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #efefef;
+  margin-bottom: 20rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 5rpx solid #a7a7a7;
 }
 .reviewTitle {
   font-weight: bold;
+  font-size: 30rpx;
+}
+.reviewAuthor {
+  margin: 15rpx 0 10rpx;
 }
 .reviewAvt {
-  width:20rpx;
+  width:25rpx;
   border-radius: 50%;
+  margin-right: 10rpx;
 }
 .reivewContent {
   font-size: 13rpx;
