@@ -92,7 +92,6 @@ Page({
   },
   longPress:function(e) {
     const {x,y} = e.detail;
-    console.log(x,y);
     this.setData({showOption:true,optionView:{left:x,top:y}});
   },
   hideTodoOptionView:function() {
