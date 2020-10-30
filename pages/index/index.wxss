@@ -23,6 +23,9 @@
   border-left-style:solid;
   transition: 0.3s;
 }
+.steps {
+  color: orange;
+}
 .todo-hover {
   opacity: 0.8;
   background-color: rgb(230, 230, 230);
