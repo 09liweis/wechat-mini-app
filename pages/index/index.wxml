@@ -14,10 +14,4 @@
     </view>
   </view>
   <view bindtap="toForm" id="add-btn" hover-class="add-hover" hover-stay-time="1500">+</view>
-  <view class="todoOptionView {{showOption?'active':''}}" style="left:{{optionView.left}}px;top:{{optionView.top}}px">
-    <view class="option" bindtap="deleteTodo">Delete</view>
-  </view>
-  <block wx:if="{{showOption}}">
-    <view class="todoOptionViewBackdrop" bindtap="hideTodoOptionView"></view>
-  </block>
 </view>
