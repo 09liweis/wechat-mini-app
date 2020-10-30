@@ -170,6 +170,7 @@ Page({
     wxRequest(url,{method:'POST',data},function(res) {
       const {statusCode} = res;
       if (statusCode == 200) {
+        showToast({title:'Deleted'});
         steps.splice(idx,1);
         self.setData({steps});
       }
