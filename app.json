@@ -37,6 +37,10 @@
       {
         "pagePath": "pages/transactions/transactions",
         "text": "森账单"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的"
       }
     ],
     "current": 0
