@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/user/index",
     "pages/visuals/visuals",
     "pages/visualPhotos/visualPhotos",
     "pages/visualDetail/visualDetail",
