@@ -1,4 +1,5 @@
 <view>
   <input placeholder="email" />
   <input placeholder="password" />
+  <button>Login</button>
 </view>
