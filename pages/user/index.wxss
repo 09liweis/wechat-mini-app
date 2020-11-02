@@ -1,1 +1,7 @@
-/* pages/user/index.wxss */
+
+.input {
+  padding: 20rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #cccccc;
+  margin-bottom: 25rpx;
+}
