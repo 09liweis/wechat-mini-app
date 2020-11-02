@@ -1,4 +1,5 @@
 <view class="container">
+  <view class="tl">快登录啊死鬼</view>
   <input class="input" placeholder="Email" />
   <input class="input" placeholder="Password" />
   <button>Login</button>
