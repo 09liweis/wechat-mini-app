@@ -1,2 +1,4 @@
-<!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
+<view>
+  <input placeholder="email" />
+  <input placeholder="password" />
+</view>
