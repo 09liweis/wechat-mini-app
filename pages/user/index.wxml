@@ -1,5 +1,5 @@
 <view>
-  <input placeholder="email" />
-  <input placeholder="password" />
+  <input class="input" placeholder="email" />
+  <input class="input" placeholder="password" />
   <button>Login</button>
 </view>
