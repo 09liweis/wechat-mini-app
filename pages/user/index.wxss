@@ -6,6 +6,6 @@
 .input {
   padding: 20rpx;
   border-radius: 10rpx;
-  border: 1rpx solid #cccccc;
+  border-bottom: 1rpx solid #cccccc;
   margin-bottom: 25rpx;
 }
