@@ -12,14 +12,14 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.drawCanvas();
   },
 
   /**
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-
+    
   },
 
   /**
@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  drawCanvas: function() {
+    const ctx = wx.createCanvasContext('myCanvas');
+    ctx.setFillStyle('red');
+    ctx.fillRect(10, 10, 150, 75);
+    ctx.draw();
   }
 })
