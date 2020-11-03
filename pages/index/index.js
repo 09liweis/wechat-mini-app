@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+const { wxRequest } = require('../../utils/util.js');
 const app = getApp()
 
 Page({
@@ -64,25 +65,14 @@ Page({
   },
   getTodos:function() {
     const self = this;
-    wx.request({
-      url: app.globalData.api,
-      method:'GET',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      dataType:'json',
-      success(res) {
-        if (res.statusCode == 200) {
-          self.setData({ todos: res.data });
-          wx.stopPullDownRefresh();
-        } else {
-          console.log(res);
-        }
-      },
-      fail(res) {
-        console.log(res);
+    const url = app.globalData.api;
+    wxRequest(url,{},function(res) {
+      const {statusCode,data} = res;
+      if (statusCode == 200) {
+        self.setData({ todos: data });
+        wx.stopPullDownRefresh();
       }
-    })
+    });
   },
   toForm:function(e) {
     const todoId = e.currentTarget.dataset.id;
@@ -92,10 +82,10 @@ Page({
   },
   longPress:function(e) {
     const {x,y} = e.detail;
-    this.setData({showOption:true,optionView:{left:x,top:y}});
-  },
-  hideTodoOptionView:function() {
-    this.setData({showOption:false});
+    const {index,id} = e.currentTarget.dataset;
+    console.log(index,id);
+    request
+    // this.setData({showOption:true,optionView:{left:x,top:y}});
   },
   toDetail: function (e) {
     // const {offsetLeft,offsetTop,dataset} = e.currentTarget;
