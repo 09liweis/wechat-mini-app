@@ -63,10 +63,22 @@ const getCurrentDate = () => {
   }
 }
 
+const dayDiff = (date) => {
+  if (!date) {
+    return 0;
+  }
+  var currentDate = new Date().getTime();
+  var deadline = new Date(date).getTime();
+  var oneDay = 1000 * 60 * 60 * 24;
+  var diff = (deadline - currentDate) / oneDay
+  return parseInt(diff);
+}
+
 module.exports = {
   formatTime: formatTime,
   wxRequest: wxRequest,
   DOUBAN_DETAIL: 'https://samliweisen.herokuapp.com/api/visuals/',
   getCurrentDate: getCurrentDate,
-  showToast: showToast
+  showToast: showToast,
+  dayDiff: dayDiff
 }
