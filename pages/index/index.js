@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-const { wxRequest } = require('../../utils/util.js');
+const { wxRequest, dayDiff } = require('../../utils/util.js');
 const app = getApp()
 
 Page({
@@ -69,6 +69,15 @@ Page({
     wxRequest(url,{},function(res) {
       const {statusCode,data} = res;
       if (statusCode == 200) {
+        for (let i = 0; i < data.length; i++) {
+          var day = dayDiff(data[i].date);
+          if (day > 0) {
+            day = `${day} day left`;
+          } else {
+            day = `${Math.abs(day)} day pass`;
+          }
+          data[i].deadline = day;
+        }
         self.setData({ todos: data });
         wx.stopPullDownRefresh();
       }
