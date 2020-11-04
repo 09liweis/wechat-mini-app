@@ -84,8 +84,20 @@ Page({
     const {x,y} = e.detail;
     const {index,id} = e.currentTarget.dataset;
     console.log(index,id);
-    request
+    
     // this.setData({showOption:true,optionView:{left:x,top:y}});
+  },
+  deleteTodo:function(id,idx) {
+    const url = 'https://samliweisen.herokuapp.com/api/todos/'+id;
+    const self = this;
+    const todos = this.data.todos;
+    wxRequest(url,{method:'DELETE',data:{}},function(res) {
+      const {statusCode,data} = res;
+      if (statusCode == 200) {
+        todos.splice(idx,1);
+        self.setData({todos});
+      }
+    });
   },
   toDetail: function (e) {
     // const {offsetLeft,offsetTop,dataset} = e.currentTarget;
