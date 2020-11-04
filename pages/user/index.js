@@ -66,7 +66,16 @@ Page({
   drawCanvas: function() {
     const ctx = wx.createCanvasContext('myCanvas');
     ctx.setFillStyle('red');
-    ctx.fillRect(10, 10, 150, 75);
-    ctx.draw();
+    // ctx.fillRect(10, 10, 150, 75);
+    ctx.beginPath();
+    ctx.moveTo(50,50);
+    ctx.lineTo(50,300);
+    ctx.lineTo(300,100);
+    ctx.lineTo(300,250);
+    ctx.closePath();
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = 'aqua';
+    ctx.lineWidth = 20;
+    ctx.stroke();
   }
 })
