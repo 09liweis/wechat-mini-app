@@ -10,7 +10,8 @@
   <view class="todos">
     <view wx:for="{{todos}}" wx:key="_id" class="todo" hover-class="todo-hover" hover-stay-time="1000" class="todo {{item.status}}" data-index="{{index}}" data-id="{{item._id}}" bindtap="toForm" bindlongpress="longPress" >
       <view>{{item.name}} <text class="steps">{{item.steps.length}}</text></view>
-      <view>{{item.date}} <text>{{item.deadline}}</text> </view>
+      <view>{{item.date}}</view>
+      <text>{{item.deadline}}</text>
     </view>
   </view>
   <view bindtap="toForm" id="add-btn" hover-class="add-hover" hover-stay-time="1500">+</view>
