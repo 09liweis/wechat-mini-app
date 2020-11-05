@@ -66,8 +66,7 @@ Page({
   },
   getTodos:function() {
     const self = this;
-    const url = app.globalData.api;
-    wxRequest(url,{},function(res) {
+    wxRequest(TODO_API,{},function(res) {
       const {statusCode,data} = res;
       if (statusCode == 200) {
         for (let i = 0; i < data.length; i++) {
