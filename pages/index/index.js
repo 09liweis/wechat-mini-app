@@ -2,6 +2,7 @@
 //获取应用实例
 const { wxRequest, dayDiff } = require('../../utils/util.js');
 const app = getApp()
+const TODO_API = 'https://samliweisen.herokuapp.com/api/todos/';
 
 Page({
   data: {
@@ -97,7 +98,7 @@ Page({
     // this.setData({showOption:true,optionView:{left:x,top:y}});
   },
   deleteTodo:function(id,idx) {
-    const url = 'https://samliweisen.herokuapp.com/api/todos/'+id;
+    const url = TODO_API+id;
     const self = this;
     const todos = this.data.todos;
     wxRequest(url,{method:'DELETE',data:{}},function(res) {
