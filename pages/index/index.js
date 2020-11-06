@@ -3,6 +3,7 @@
 const { wxRequest, dayDiff } = require('../../utils/util.js');
 const app = getApp()
 const TODO_API = 'https://samliweisen.herokuapp.com/api/todos/';
+const DEL_BTN_WIDTH = 240;
 
 Page({
   data: {
@@ -13,6 +14,7 @@ Page({
       left: null,
       top: null
     },
+    startX:'',
     // selected:'',
     // animation: null,
     userInfo: {},
@@ -125,4 +127,66 @@ Page({
     // console.log(offsetLeft, offsetTop);
     // this.setData({selected:todo,animation:animation.export()});
   },
+  touchS: function (e) {
+    // console.log('开始：' + JSON.stringify(e))
+    // 是否只有一个触摸点
+    if(e.touches.length === 1){
+      this.setData({
+        // 触摸起始的X坐标
+        startX: e.touches[0].clientX
+      })
+    }
+  },
+  touchM: function (e) {
+    // console.log('移动：' + JSON.stringify(e))
+    var _this = this
+    if(e.touches.length === 1){
+     // 触摸点的X坐标
+      var moveX = e.touches[0].clientX
+      // 计算手指起始点的X坐标与当前触摸点的X坐标的差值
+      var disX = _this.data.startX - moveX
+     // delBtnWidth 为右侧按钮区域的宽度
+      var delBtnWidth = DEL_BTN_WIDTH;
+      var txtStyle = ''
+      if (disX == 0 || disX < 0){ // 如果移动距离小于等于0，文本层位置不变
+        txtStyle = 'left:0'
+      } else if (disX > 0 ){ // 移动距离大于0，文本层left值等于手指移动距离
+        txtStyle = 'left:-' + disX + 'rpx'
+        if(disX >= delBtnWidth){
+          // 控制手指移动距离最大值为删除按钮的宽度
+          txtStyle = 'left:-' + delBtnWidth + 'rpx'
+        }
+      }
+      // 获取手指触摸的是哪一个item
+      var index = e.currentTarget.dataset.index;
+      var todos = _this.data.todos;
+      // 将拼接好的样式设置到当前item中
+      todos[index].txtStyle = txtStyle
+      // 更新列表的状态
+      this.setData({todos});
+    }
+  },
+  touchE: function (e) {
+    // console.log('停止：' + JSON.stringify(e))
+    var _this = this
+    if(e.changedTouches.length === 1){
+      // 手指移动结束后触摸点位置的X坐标
+      var endX = e.changedTouches[0].clientX;
+      // 触摸开始与结束，手指移动的距离
+      var disX = _this.data.startX - endX;
+      console.log(disX);
+      var delBtnWidth = DEL_BTN_WIDTH;
+      // 如果距离小于删除按钮的1/2，不显示删除按钮
+      var txtStyle = disX > delBtnWidth/2 ? 'left:-' + delBtnWidth + 'rpx' : 'left:0';
+      // 获取手指触摸的是哪一项
+      var index = e.currentTarget.dataset.index;
+      var todos = _this.data.todos;
+      todos[index].txtStyle = txtStyle;
+      console.log(txtStyle);
+      // 更新列表的状态
+      _this.setData({
+        todos
+      });
+    }
+  }
 })
