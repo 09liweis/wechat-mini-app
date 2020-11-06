@@ -18,10 +18,28 @@
 .todo {
   box-shadow:0 1rpx 6rpx rgba(0,0,0,.117647), 0 1rpx 4rpx rgba(0,0,0,.117647);
   margin-bottom:20rpx;
-  padding:20rpx;
   border-left-width:10rpx;
   border-left-style:solid;
   transition: 0.3s;
+  position: relative;
+}
+.todo-detail {
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 20rpx;
+  left: 0;
+  top: 0;
+}
+.todo-delete {
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  top: 0;
+  background-color: red;
+  color: #fff;
+  padding: 20rpx;
 }
 .steps {
   color: orange;
