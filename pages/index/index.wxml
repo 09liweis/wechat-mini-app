@@ -9,7 +9,7 @@
   </view>
   <view class="todos">
     <view wx:for="{{todos}}" wx:key="_id" class="todo" hover-class="todo-hover" hover-stay-time="1000" class="todo {{item.status}}" data-index="{{index}}" data-id="{{item._id}}" bindtap="toForm" bindlongpress="longPress" >
-      <view class="todo-detail">
+      <view class="todo-detail" style="{{item.txtStyle}}" data-index="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" >
         <view>{{item.name}} <text class="steps">{{item.steps.length}}</text></view>
         <view>{{item.date}}</view>
         <text>{{item.deadline}}</text>
