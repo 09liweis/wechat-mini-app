@@ -24,6 +24,7 @@
   position: relative;
 }
 .todo-detail {
+  transition: 0.3s;
   background-color: #fff;
   position: relative;
   z-index: 1;
