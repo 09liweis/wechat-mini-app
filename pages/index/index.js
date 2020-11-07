@@ -10,10 +10,11 @@ Page({
     btnSz:'mini',
     todos:[],
     showOption:false,
-    optionView:{
-      left: null,
-      top: null
-    },
+    selectedTodo:{id:'',idx:''},
+    // optionView:{
+    //   left: null,
+    //   top: null
+    // },
     startX:'',
     // selected:'',
     // animation: null,
@@ -98,15 +99,17 @@ Page({
     
     // this.setData({showOption:true,optionView:{left:x,top:y}});
   },
-  deleteTodo:function(id,idx) {
+  deleteTodo:function(e) {
+    const {index,id} = e.currentTarget.dataset;
     const url = TODO_API+id;
     const self = this;
     const todos = this.data.todos;
     wxRequest(url,{method:'DELETE',data:{}},function(res) {
       const {statusCode,data} = res;
       if (statusCode == 200) {
-        todos.splice(idx,1);
+        todos.splice(index,1);
         self.setData({todos});
+        return;
       }
     });
   },
