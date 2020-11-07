@@ -14,7 +14,7 @@
         <view>{{item.date}}</view>
         <text>{{item.deadline}}</text>
       </view>
-      <view class="todo-delete">Delete</view>
+      <view class="todo-delete" data-id="{{item._id}}" data-index="{{index}}" bindtap="deleteTodo">Delete</view>
     </view>
   </view>
   <view bindtap="toForm" id="add-btn" hover-class="add-hover" hover-stay-time="1500">+</view>
