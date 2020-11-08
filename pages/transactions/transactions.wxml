@@ -3,7 +3,7 @@
   <text class="total">${{total}}</text>
   <button size="mini" type="primary" bindtap="showFitlers">过滤</button>
   <modal class="fitlers" hidden="{{hideFilters}}" title="" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirmFilters">
-    <radio-group bindchange="radioChange">
+    <radio-group class="filter__dates" bindchange="radioChange">
       <label class="weui-cell" wx:for="{{dateTypes}}" wx:key="index">
         <radio value="{{item}}" checked="true"/>
         <text class="weui-cell__bd">{{item}}</text>

@@ -26,6 +26,16 @@
   font-weight: bold;
   color: burlywood;
 }
+.filter__dates {
+  text-align: center;
+}
+.weui-cell {
+  margin-right: 15rpx;
+}
+.selectDate {
+  margin-top: 10rpx;
+  text-align: center;
+}
 .date {
   font-size: 12px;
   color: grey;
