@@ -1,7 +1,9 @@
 <!--pages/transactions/transactions.wxml-->
 <view class="transactions">
-  <text class="total">${{total}}</text>
-  <button size="mini" type="primary" bindtap="showFitlers">过滤</button>
+  <view class="header">
+    <text class="total">${{total}}</text>
+    <button class="filter__btn" size="mini" type="primary" bindtap="showFitlers">过滤</button>
+  </view>
   <modal class="fitlers" hidden="{{hideFilters}}" title="" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirmFilters">
     <radio-group class="filter__dates" bindchange="radioChange">
       <label class="weui-cell" wx:for="{{dateTypes}}" wx:key="index">
