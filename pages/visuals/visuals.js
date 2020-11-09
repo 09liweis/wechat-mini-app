@@ -1,6 +1,7 @@
 // pages/visuals.js
 const util = require('../../utils/util.js')
 const DOUBAN_MOVIE_TAG = 'https://movie.douban.com/j/search_tags?type=movie&tag=热门&source=';
+const DOUBAN_MOVIES = 'https://movie.douban.com/j/search_subjects?type=movie&tag=热门&sort=recommend&page_limit=20&page_start=0';
 Page({
 
   /**
