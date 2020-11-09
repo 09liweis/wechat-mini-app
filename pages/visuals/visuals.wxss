@@ -4,7 +4,7 @@
   padding: 0 20rpx;
   background-color: #ccc;
 }
-.visualContainer {
+.visual-container {
   display: flex;
   background-color: #fff;
   padding: 20rpx;
