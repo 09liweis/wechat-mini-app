@@ -2,15 +2,19 @@
 .visualPage {
   font-size: 24rpx;
   padding: 0 20rpx;
-  background-color: #ccc;
+  display: flex;
+  flex-wrap: wrap;
 }
 .visual-container {
-  display: flex;
+  position: relative;
   background-color: #fff;
-  padding: 20rpx;
+}
+.visual {
+  box-sizing: border-box;
+  width: 33.33%;
+  padding: 0 10rpx;
   margin-bottom: 20rpx;
   border-radius: 10rpx;
-  position: relative;
 }
 .visual-hover {
   opacity: 0.7;
@@ -26,14 +30,15 @@
 }
 .poster {
   border-radius: 6rpx;
-  flex:1;
+  width: 100%;
 }
 .detail {
-  margin-left: 20rpx;
-  flex: 2;
-}
-.title {
-  display: block;
-  font-weight: bold;
-  font-size: 36rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10rpx;
+  color: #fff;
+  font-size: 24rpx;
 }

@@ -1,11 +1,12 @@
 <!--pages/visuals.wxml-->
 <view class="visualPage">
-  <view class="visual-container" wx:for="{{visuals}}" wx:key="id" bindtap="toDetail" data-doubanId="{{item.douban_id}}" hover-class="visual-hover" hover-stay-time="1000">
-    <view class="progress">{{item.current_episode}}/{{item.episodes}}</view>
-    <image mode="widthFix" class="poster" src="{{item.poster}}"></image>
-    <view class="detail">
-      <text class="title">{{item.title}}</text>
-      <text>豆瓣:{{item.douban_rating}}</text>
+  <view class="visual" wx:for="{{visuals}}" wx:key="id" bindtap="toDetail" data-doubanId="{{item.douban_id}}" hover-class="visual-hover" hover-stay-time="1000">
+    <view class="visual-container">
+      <view class="progress">{{item.current_episode}}/{{item.episodes}}</view>
+      <image mode="widthFix" class="poster" src="{{item.poster}}"></image>
+      <view class="detail">
+        <text class="title">{{item.title}}</text>
+      </view>
     </view>
   </view>
 </view>
