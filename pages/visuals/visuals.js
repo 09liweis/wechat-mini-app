@@ -18,7 +18,6 @@ Page({
    */
   onLoad: function (options) {
     this.getVisuals();
-    this.getDoubans();
   },
 
   /**
