@@ -18,6 +18,7 @@ Page({
    */
   onLoad: function (options) {
     this.getVisuals();
+    this.getDoubans();
   },
 
   /**
@@ -76,6 +77,14 @@ Page({
     wx.navigateTo({
       url: '/pages/visualDetail/visualDetail?douban_id=' + douban_id,
     })
+  },
+
+  getDoubans:function() {
+    util.wxRequest(DOUBAN_MOVIES,{},function(res) {
+      const {statusCode,data} = res;
+      console.log(statusCode);
+      console.log(data);
+    });
   },
 
   getVisuals: function() {
