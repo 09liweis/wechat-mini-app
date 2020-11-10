@@ -12,6 +12,7 @@
 .visual {
   box-sizing: border-box;
   width: 33.33%;
+  height: 330rpx;
   padding: 0 10rpx;
   margin-bottom: 20rpx;
   border-radius: 10rpx;
