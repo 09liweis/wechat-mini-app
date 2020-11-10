@@ -1,4 +1,3 @@
-/* pages/visuals.wxss */
 .visualPage {
   font-size: 24rpx;
   padding: 0 20rpx;

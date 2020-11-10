@@ -1,4 +1,4 @@
-<!--pages/visuals.wxml-->
+
 <view class="visualPage">
   <visual class="visual-item" wx:for="{{visuals}}" wx:key="douban_id" visual="{{item}}"/>
 </view>
