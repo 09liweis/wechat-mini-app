@@ -23,7 +23,7 @@
 }
 .progress {
   position: absolute;
-  bottom: 0;
+  top: 0;
   right: 0;
   padding: 4rpx 8rpx;
   background-color: chocolate;
