@@ -5,41 +5,6 @@
   display: flex;
   flex-wrap: wrap;
 }
-.visual-container {
-  position: relative;
-  background-color: #fff;
-}
-.visual {
-  box-sizing: border-box;
-  width: 33.33%;
-  height: 330rpx;
-  padding: 0 10rpx;
-  margin-bottom: 20rpx;
-  border-radius: 10rpx;
-}
-.visual-hover {
-  opacity: 0.7;
-  background-color: honeydew;
-}
-.progress {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 4rpx 8rpx;
-  background-color: chocolate;
-  color: #fff;
-}
-.poster {
-  border-radius: 6rpx;
-  width: 100%;
-}
-.detail {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10rpx;
-  color: #fff;
-  font-size: 24rpx;
+.visual-item {
+  width: 33.3%;
 }

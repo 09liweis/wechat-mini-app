@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "visual": "../../components/visual/visual"
+  },
   "navigationBarTitleText":"森影视"
 }
