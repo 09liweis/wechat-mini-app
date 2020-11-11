@@ -1,4 +1,6 @@
-
+<view class="tags">
+  <view wx:for="{{tags}}" wx:key="index" class="tag {{tag == item?'active':''}}" data-tag="{{item}}" bindtap="selectTag">{{item}}</view>
+</view>
 <view class="visualPage">
   <visual class="visual-item" wx:for="{{visuals}}" wx:key="douban_id" visual="{{item}}"/>
 </view>
