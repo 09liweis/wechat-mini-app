@@ -10,17 +10,18 @@ Page({
   data: {
     visuals:[],
     page:1,
-    limit:10,
+    limit:30,
     tag:'sam',
     tags: [
-      "热门",
-      "最新",
-      "豆瓣高分",
-      "冷门佳片",
-      "华语",
-      "欧美",
-      "韩国",
-      "日本"
+      'sam',
+      '热门',
+      '最新',
+      '豆瓣高分',
+      '冷门佳片',
+      '华语',
+      '欧美',
+      '韩国',
+      '日本'
     ]
   },
 
@@ -29,7 +30,6 @@ Page({
    */
   onLoad: function (options) {
     this.getVisuals();
-    this.getDoubans();
   },
 
   /**
@@ -65,7 +65,7 @@ Page({
    */
   onPullDownRefresh: function () {
     this.setData({page:1});
-    this.getVisuals();
+    this.getData();
   },
 
   /**
@@ -73,7 +73,7 @@ Page({
    */
   onReachBottom: function () {
     this.setData({page:this.data.page+1});
-    this.getVisuals();
+    this.getData()
   },
 
   /**
@@ -83,11 +83,29 @@ Page({
 
   },
 
+  getData: function() {
+    const {tag} = this.data;
+    if (tag != 'sam') {
+      this.getDoubans();
+    } else {
+      this.getVisuals();
+    }
+  },
+
+  selectTag: function(e) {
+    const {tag} = e.currentTarget.dataset;
+    this.setData({tag});
+    this.getData();
+  },
+
   getDoubans:function() {
-    util.wxRequest(DOUBAN_MOVIES,{method:'POST',data:{}},function(res) {
+    const {tag} = this.data;
+    const self = this;
+    util.wxRequest(DOUBAN_MOVIES,{method:'POST',data:{tag}},function(res) {
       const {statusCode,data} = res;
-      console.log(statusCode);
-      console.log(data);
+      if (statusCode == 200) {
+        self.setData({visuals:data.visuals})
+      }
     });
   },
 
@@ -101,7 +119,6 @@ Page({
       if (statusCode == 200) {
         let visuals = [];
         const results = data.results;
-        console.log(results);
         if (page > 1) {
           visuals = self.data.visuals.concat(results);
         } else {
