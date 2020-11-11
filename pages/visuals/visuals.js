@@ -1,5 +1,5 @@
 // pages/visuals.js
-const util = require('../../utils/util.js')
+const {wxRequest} = require('../../utils/util.js')
 const DOUBAN_MOVIE_TAG = 'https://movie.douban.com/j/search_tags?type=movie&tag=热门&source=';
 const DOUBAN_MOVIES = 'https://samliweisen.herokuapp.com/api/visuals/douban';
 Page({
@@ -94,17 +94,35 @@ Page({
 
   selectTag: function(e) {
     const {tag} = e.currentTarget.dataset;
-    this.setData({tag});
+    this.setData({tag,page:1});
     this.getData();
+  },
+  showLoading: function() {
+    wx.showLoading({
+      title: '努力加载中',
+    });
+  },
+  hideLoading: function() {
+    wx.hideLoading();
   },
 
   getDoubans:function() {
-    const {tag} = this.data;
+    const {tag,page,limit} = this.data;
     const self = this;
-    util.wxRequest(DOUBAN_MOVIES,{method:'POST',data:{tag}},function(res) {
+    self.showLoading();
+    console.log(page,limit);
+    wxRequest(DOUBAN_MOVIES,{method:'POST',data:{tag,page,limit}},function(res) {
       const {statusCode,data} = res;
+      self.hideLoading();
       if (statusCode == 200) {
-        self.setData({visuals:data.visuals})
+        let visuals = [];
+        const results = data.visuals;
+        if (page > 1) {
+          visuals = self.data.visuals.concat(results);
+        } else {
+          visuals = results;
+        }
+        self.setData({visuals});
       }
     });
   },
@@ -114,8 +132,10 @@ Page({
     const {page,limit} = this.data;
     url += `?page=${page}&limit=${limit}`;
     const self = this;
-    util.wxRequest(url,{},function(res) {
+    self.showLoading();
+    wxRequest(url,{},function(res) {
       const {statusCode,data} = res;
+      self.hideLoading();
       if (statusCode == 200) {
         let visuals = [];
         const results = data.results;
