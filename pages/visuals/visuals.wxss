@@ -1,5 +1,11 @@
 .tags {
-  margin: 10rpx;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  left: 20rpx;
+  z-index: 1;
+  top: 0rpx;
+  padding: 10rpx;
   white-space: nowrap;
   overflow-x: scroll;
 }
@@ -15,6 +21,7 @@
   color: #fff;
 }
 .visualPage {
+  margin-top: 100rpx;
   font-size: 24rpx;
   display: flex;
   flex-wrap: wrap;
