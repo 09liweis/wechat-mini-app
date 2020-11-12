@@ -95,6 +95,10 @@ Page({
   selectTag: function(e) {
     const {tag} = e.currentTarget.dataset;
     this.setData({tag,page:1});
+    wx.pageScrollTo({
+      scrollTop:0,
+      duration: 0,
+    })
     this.getData();
   },
   showLoading: function() {
