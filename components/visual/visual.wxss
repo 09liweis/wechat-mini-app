@@ -36,3 +36,7 @@
   color: #fff;
   font-size: 24rpx;
 }
+.rating {
+  margin-left: 10rpx;
+  color: orange;
+}

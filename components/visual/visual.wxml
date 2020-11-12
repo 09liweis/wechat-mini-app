@@ -4,6 +4,7 @@
     <image mode="widthFix" class="poster" src="{{visual.poster}}"></image>
     <view class="detail">
       <text class="title">{{visual.title}}</text>
+      <text class="rating">{{visual.douban_rating}}</text>
     </view>
   </view>
 </view>
