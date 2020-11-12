@@ -16,7 +16,6 @@
 }
 .visualPage {
   font-size: 24rpx;
-  padding: 0 20rpx;
   display: flex;
   flex-wrap: wrap;
 }

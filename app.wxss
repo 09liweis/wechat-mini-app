@@ -1,5 +1,6 @@
 .container {
-  margin:20rpx;
+  position: relative;
+  margin: 20rpx;
 } 
 .flexbox {
   display: flexbox;
