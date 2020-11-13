@@ -1,6 +1,5 @@
 // pages/visuals.js
 const {wxRequest} = require('../../utils/util.js')
-const DOUBAN_MOVIE_TAG = 'https://movie.douban.com/j/search_tags?type=movie&tag=热门&source=';
 const DOUBAN_MOVIES = 'https://samliweisen.herokuapp.com/api/visuals/douban';
 const DOUBAN_TAGS = 'https://samliweisen.herokuapp.com/api/visuals/douban/tags';
 Page({
