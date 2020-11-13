@@ -2,6 +2,7 @@
 const {wxRequest} = require('../../utils/util.js')
 const DOUBAN_MOVIE_TAG = 'https://movie.douban.com/j/search_tags?type=movie&tag=热门&source=';
 const DOUBAN_MOVIES = 'https://samliweisen.herokuapp.com/api/visuals/douban';
+const DOUBAN_TAGS = 'https://samliweisen.herokuapp.com/api/visuals/douban/tags';
 Page({
 
   /**
@@ -12,23 +13,14 @@ Page({
     page:1,
     limit:30,
     tag:'sam',
-    tags: [
-      'sam',
-      '热门',
-      '最新',
-      '豆瓣高分',
-      '冷门佳片',
-      '华语',
-      '欧美',
-      '韩国',
-      '日本'
-    ]
+    tags: ['sam']
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    this.getTags();
     this.getVisuals();
   },
 
@@ -81,6 +73,17 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getTags:function() {
+    const {type} = this.data;
+    const self = this;
+    wxRequest(DOUBAN_TAGS,{method:'POST',data:{type}},function(res) {
+      const {statusCode,data} = res;
+      var {tags} = data;
+      tags = ['sam'].concat(tags);
+      self.setData({tags});
+    });
   },
 
   getData: function() {
