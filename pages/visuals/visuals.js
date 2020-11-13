@@ -13,6 +13,7 @@ Page({
     page:1,
     limit:30,
     tag:'sam',
+    type:'movie',
     tags: ['sam']
   },
 
@@ -75,6 +76,20 @@ Page({
 
   },
 
+  changeType: function() {
+    var {type,tag} = this.data;
+    if (type == 'movie') {
+      type = 'tv';
+      tag = '热门';
+    } else {
+      type = 'movie';
+      tag = 'sam';
+    }
+    this.setData({type,tag});
+    this.getTags();
+    this.getData();
+  },
+
   getTags:function() {
     const {type} = this.data;
     const self = this;
@@ -114,11 +129,10 @@ Page({
   },
 
   getDoubans:function() {
-    const {tag,page,limit} = this.data;
+    const {tag,page,limit,type} = this.data;
     const self = this;
     self.showLoading();
-    console.log(page,limit);
-    wxRequest(DOUBAN_MOVIES,{method:'POST',data:{tag,page,limit}},function(res) {
+    wxRequest(DOUBAN_MOVIES,{method:'POST',data:{tag,page,limit,type}},function(res) {
       const {statusCode,data} = res;
       self.hideLoading();
       if (statusCode == 200) {
