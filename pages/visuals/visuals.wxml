@@ -1,5 +1,6 @@
 <view class="container">
   <view class="tags">
+    <view class="tag type" bindtap="changeType">{{type}}</view>
     <view wx:for="{{tags}}" wx:key="index" class="tag {{tag == item?'active':''}}" data-tag="{{item}}" bindtap="selectTag">{{item}}</view>
   </view>
   <view class="visualPage">
