@@ -1,25 +1,3 @@
-.tags {
-  background-color: #fff;
-  position: fixed;
-  width: 100%;
-  left: 20rpx;
-  z-index: 1;
-  top: 0rpx;
-  padding: 10rpx;
-  white-space: nowrap;
-  overflow-x: scroll;
-}
-.tag {
-  display: inline-block;
-  padding: 1rpx 10rpx;
-  margin-right: 10rpx;
-  margin-bottom: 10rpx;
-  border-radius: 10rpx;
-}
-.tag.active {
-  background-color: #4b8ccb;
-  color: #fff;
-}
 .visualPage {
   margin-top: 100rpx;
   font-size: 24rpx;

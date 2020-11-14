@@ -9,6 +9,7 @@ Page({
     douban_id:'',
     photos:[],
     types:[],
+    type: 'S',
     page:1
   },
 
@@ -70,11 +71,21 @@ Page({
   onShareAppMessage: function () {
 
   },
+  selectType:function(e) {
+    const {type} = e.currentTarget.dataset;
+    this.setData({type,page:1});
+    wx.pageScrollTo({
+      scrollTop:true,
+      duration: 0,
+    })
+    this.getPhotos();
+  },
+
   getPhotos: function() {
-    const {douban_id,page} = this.data;
+    const {douban_id,page,type} = this.data;
     const url = DOUBAN_DETAIL + 'photos';
     const self = this;
-    const data = {douban_id,page}
+    const data = {douban_id,page,type};
     wx.showLoading({
       title: '加载图片',
     });
