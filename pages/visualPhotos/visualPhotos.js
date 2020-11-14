@@ -8,6 +8,7 @@ Page({
   data: {
     douban_id:'',
     photos:[],
+    types:[],
     page:1
   },
 
@@ -82,17 +83,17 @@ Page({
       const {statusCode,data} = res;
       console.log(statusCode,data);
       if (statusCode == 200) {
+        const {title,photos,types,type} = data;
         wx.setNavigationBarTitle({
-          title: data.title,
+          title: title,
         });
-        const photos = data.photos;
         let currentPhotos = self.data.photos;
         if (page > 1) {
           currentPhotos = currentPhotos.concat(photos);
         } else {
           currentPhotos = photos;
         }
-        self.setData({photos:currentPhotos});
+        self.setData({photos:currentPhotos,types,type});
       }
     })
   }
