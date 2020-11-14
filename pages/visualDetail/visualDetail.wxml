@@ -17,7 +17,7 @@
     </view>
     <view class="block">{{v.summary}}</view>
     <view class="casts block">
-      <view class="cast" wx:for="{{v.casts}}" wx:key="name">
+      <view class="cast" wx:for="{{v.casts}}" wx:key="name" wx:if="{{item.name}}">
         <image class="avt" mode="widthFix" src="{{item.avt}}"></image>
         <view class="castText">
           <view class="name">{{item.name}}</view>
