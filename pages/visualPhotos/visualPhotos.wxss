@@ -2,6 +2,8 @@
   margin-top: 100rpx;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 .overlayPhoto {
   width: 33.3333%;

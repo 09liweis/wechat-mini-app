@@ -2,9 +2,12 @@
   <view class="tags">
     <view wx:for="{{types}}" wx:for-index="key"  wx:for-item="value" data-type="{{key}}" wx:key="key" bindtap="selectType" class="tag {{key == type?'active':''}}">{{value}}</view>
   </view>
-  <view class="overlayPhotos">
-    <view class="overlayPhoto" wx:for="{{photos}}" wx:key="index">
-      <image data-origin="{{item.origin}}" src="{{item.thumb}}" mode="aspectFill"></image>
-    </view>
+  <view wx:if="loading" class="overlayPhotos">
+    <block wx:if="photos.length">
+      <view class="overlayPhoto" wx:for="{{photos}}" wx:key="index">
+        <image lazy-load="true" data-origin="{{item.origin}}" src="{{item.thumb}}" mode="aspectFill"></image>
+      </view>
+    </block>
+    <view wx:else>No Photos</view>
   </view>
 </view>

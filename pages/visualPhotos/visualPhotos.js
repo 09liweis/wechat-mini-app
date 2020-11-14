@@ -6,6 +6,7 @@ Page({
    * Page initial data
    */
   data: {
+    loading: false,
     douban_id:'',
     photos:[],
     types:[],
@@ -73,7 +74,7 @@ Page({
   },
   selectType:function(e) {
     const {type} = e.currentTarget.dataset;
-    this.setData({type,page:1});
+    this.setData({type,page:1,photos:[]});
     wx.pageScrollTo({
       scrollTop:true,
       duration: 0,
@@ -87,8 +88,10 @@ Page({
     const self = this;
     const data = {douban_id,page,type};
     showLoading();
+    this.setData({loading:true});
     wxRequest(url,{method:'POST',data}, function(res) {
       wx.hideLoading();
+      self.setData({loading:false});
       const {statusCode,data} = res;
       console.log(statusCode,data);
       if (statusCode == 200) {
