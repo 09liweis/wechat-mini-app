@@ -21,6 +21,12 @@ const showToast = ({title='Success',icon='success'}) => {
   });
 }
 
+const showLoading = (title='加载ing') => {
+  wx.showLoading({
+    title,
+  })
+}
+
 const wxRequest = (url,opt,cb) => {
   var method = 'GET';
   var data = {};
@@ -80,5 +86,6 @@ module.exports = {
   DOUBAN_DETAIL: 'https://samliweisen.herokuapp.com/api/visuals/',
   getCurrentDate: getCurrentDate,
   showToast: showToast,
+  showLoading:showLoading,
   dayDiff: dayDiff
 }
