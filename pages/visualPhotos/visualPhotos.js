@@ -1,5 +1,5 @@
 // pages/visualPhotos/visualPhotos.js
-const { wxRequest,DOUBAN_DETAIL } = require('../../utils/util.js');
+const { wxRequest,DOUBAN_DETAIL,showLoading } = require('../../utils/util.js');
 Page({
 
   /**
@@ -86,9 +86,7 @@ Page({
     const url = DOUBAN_DETAIL + 'photos';
     const self = this;
     const data = {douban_id,page,type};
-    wx.showLoading({
-      title: '加载图片',
-    });
+    showLoading();
     wxRequest(url,{method:'POST',data}, function(res) {
       wx.hideLoading();
       const {statusCode,data} = res;
