@@ -94,7 +94,6 @@ Page({
       wx.hideLoading();
       const {statusCode,data} = res;
       if (statusCode == 200) {
-        // console.log(data);
         self.setData({v:data});
         wx.setNavigationBarTitle({
           title: data.title,
