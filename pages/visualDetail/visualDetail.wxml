@@ -16,7 +16,7 @@
       <view class="count">{{v.douban_vote_count}}</view>
     </view>
     <view class="block">{{v.summary}}</view>
-    <view class="casts block">
+    <view class="casts block" bindtap="openCasts">
       <view class="cast" wx:for="{{v.casts}}" wx:key="name" wx:if="{{item.name}}">
         <image class="avt" mode="widthFix" src="{{item.avt}}"></image>
         <view class="castText">

@@ -73,6 +73,12 @@ Page({
       title: '加载数据中(^ o ^)',
     });
   },
+  openCasts: function() {
+    const {douban_id} = this.data;
+    wx.navigateTo({
+      url: '/pages/visualCasts/visualCasts?douban_id=' + douban_id,
+    })
+  },
   openPhotos: function() {
     const {douban_id} = this.data;
     wx.navigateTo({
