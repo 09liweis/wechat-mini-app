@@ -15,6 +15,7 @@
     </view>
     <view class="step flexbox space-between align-center" wx:for="{{steps}}" wx:key="name" bindlongtap="longTapStep">
       <view>{{item.name}}</view>
+      <button bindtap="updateStepStatus" data-idx="{{index}}" data-step="{{item}}" size="mini" type="primary">{{item.status}}</button>
       <button bindtap="deleteStep" data-idx="{{index}}" data-step="{{item}}" type="warn" size="mini" class="deleteStep">Delete</button>
     </view>
   </view>

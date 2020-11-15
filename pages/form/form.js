@@ -17,7 +17,7 @@ Page({
    */
   onLoad: function (options) {
     this.getUserLocation();
-    const id = options.id || '5f93a447d99ebe000466e661';
+    const id = options.id || "5f98c9331870690004b71300";
     if (id === 'undefined') {
       this.setEmptyTodo();
       return;
@@ -172,6 +172,29 @@ Page({
       if (statusCode == 200) {
         showToast({title:'Deleted'});
         steps.splice(idx,1);
+        self.setData({steps});
+      }
+    });
+  },
+  updateStepStatus(e) {
+    const todoId = this.data._id;
+    var {idx,step} = e.currentTarget.dataset;
+    let steps = this.data.steps;
+    const url = `${api}${todoId}/update_step`;
+    step.idx = idx;
+    if (step.status == 'pending') {
+      step.status = 'working';
+    }
+    if (step.status == 'working') {
+      step.status = 'done';
+    }
+    const data = {step,mode:'update'};
+    const self = this;
+    wxRequest(url,{method:'POST',data},function(res) {
+      const {statusCode} = res;
+      if (statusCode == 200) {
+        showToast({title:'Updated'});
+        steps[idx] = step;
         self.setData({steps});
       }
     });
