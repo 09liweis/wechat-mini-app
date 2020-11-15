@@ -1,20 +1,21 @@
 {
   "pages": [
-    "pages/user/index",
     "pages/visuals/visuals",
     "pages/visualPhotos/visualPhotos",
     "pages/visualDetail/visualDetail",
     "pages/index/index",
     "pages/logs/logs",
     "pages/form/form",
-    "pages/transactions/transactions"
+    "pages/transactions/transactions",
+    "pages/visualCasts/visualCasts",
+    "pages/user/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#2e7d32",
     "navigationBarTitleText": "森计划",
     "navigationBarTextStyle": "white",
-    "enablePullDownRefresh":true
+    "enablePullDownRefresh": true
   },
   "sitemapLocation": "sitemap.json",
   "permission": {
