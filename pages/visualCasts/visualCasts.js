@@ -1,18 +1,22 @@
-// pages/visualCasts.js
+const { wxRequest,DOUBAN_DETAIL,showLoading } = require('../../utils/util.js');
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    loading: false,
+    douban_id:'',
+    casts:[],
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    let {douban_id} = options;
+    this.setData({douban_id:douban_id || '26100958'});
+    this.getCasts();
   },
 
   /**
@@ -62,5 +66,20 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getCasts:function() {
+    const {douban_id} = this.data;
+    const self = this;
+    const url = DOUBAN_DETAIL + 'celebrities';
+    showLoading();
+    wxRequest(url,{method:'POST',data:{douban_id}},function(res) {
+      const {statusCode,data} = res;
+      console.log(statusCode, data);
+      wx.hideLoading();
+      if (statusCode == 200) {
+        self.setData({casts:data.casts});
+      }
+    });
   }
 })

@@ -1,1 +1,24 @@
-/* pages/visualCasts.wxss */
+.cast-group {
+  margin: 30rpx;
+}
+.tl {
+  margin-bottom: 20rpx;
+}
+.cast {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.cast-avt {
+  flex:1;
+  border-radius: 20rpx;
+}
+.cast-info {
+  padding-left: 20rpx;
+  flex:2;
+}
+.cast-name {
+  font-size: 35rpx;
+}
+.cast-info {
+  font-size: 30rpx;
+}
