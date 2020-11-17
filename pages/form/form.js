@@ -144,6 +144,7 @@ Page({
   bindStepChange: function (e) {
     let step = this.data.step;
     step.name = e.detail.value;
+    step.status = 'pending';
     this.setData({ step });
   },
   showStepForm:function() {
@@ -184,18 +185,19 @@ Page({
     step.idx = idx;
     if (step.status == 'pending') {
       step.status = 'working';
-    }
-    if (step.status == 'working') {
+    } else if (step.status == 'working') {
       step.status = 'done';
     }
     const data = {step,mode:'update'};
     const self = this;
     wxRequest(url,{method:'POST',data},function(res) {
-      const {statusCode} = res;
+      const {statusCode,data} = res;
       if (statusCode == 200) {
         showToast({title:'Updated'});
         steps[idx] = step;
         self.setData({steps});
+      } else {
+        showToast({title:data.msg});
       }
     });
     
