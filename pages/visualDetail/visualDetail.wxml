@@ -48,7 +48,8 @@
         <view class="reviewTitle">{{item.title}}</view>
         <view class="reviewAuthor">
           <image class="reviewAvt" mode="widthFix" src="{{item.avt}}"></image>
-          <text>{{item.author}}</text>
+          <text class="">{{item.author}}</text>
+          <text class="review-rating">{{item.rating}}</text>
           <text >{{item.date}}</text>
         </view>
         <view class="reviewContent">{{item.content}}</view>

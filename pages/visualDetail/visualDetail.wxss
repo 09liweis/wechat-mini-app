@@ -112,6 +112,10 @@
   border-radius: 50%;
   margin-right: 10rpx;
 }
+.review-rating {
+  color: #FFAC2C;
+  margin: 0 20rpx;
+}
 .reivewContent {
   font-size: 13rpx;
 }
