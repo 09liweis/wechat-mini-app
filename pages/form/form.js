@@ -183,11 +183,12 @@ Page({
     let steps = this.data.steps;
     const url = `${api}${todoId}/update_step`;
     step.idx = idx;
-    if (step.status == 'pending') {
-      step.status = 'working';
-    } else if (step.status == 'working') {
-      step.status = 'done';
-    }
+    var stepStatusMatches = {
+      pending: 'working',
+      working: 'done',
+      done: 'pending'
+    };
+    step.status = stepStatusMatches[step.status];
     const data = {step,mode:'update'};
     const self = this;
     wxRequest(url,{method:'POST',data},function(res) {
