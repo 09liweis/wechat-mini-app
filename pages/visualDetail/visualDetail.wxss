@@ -89,6 +89,9 @@
   padding-bottom: 10rpx;
   border-bottom: 2rpx solid #efefef;
 }
+.comment-rating {
+  color: #FFAC2C;
+}
 .commentAuthor {
   font-weight: bold;
 }

@@ -37,7 +37,9 @@
     </view>
     <view class="comments block">
       <view wx:for="{{v.comments}}" wx:key="index" class="comment" v-if="{{item.text}}">
-        <view class="commentAuthor">{{item.author}} {{item.date}}</view>
+        <view class="commentAuthor">
+          {{item.author}} {{item.date}} <text class="comment-rating">{{item.rating}}</text>
+        </view>
         <view>{{item.text}}</view>
       </view>
     </view>
