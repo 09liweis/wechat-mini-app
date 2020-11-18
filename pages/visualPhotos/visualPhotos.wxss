@@ -8,8 +8,18 @@
 .overlayPhoto {
   width: 33.3333%;
   height: 300rpx;
+  position: relative;
 }
 .overlayPhoto image {
   width: 100%;
   height: 100%;
+}
+.overlayPhoto .reply {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 25rpx;
+  padding: 10rpx;
 }
