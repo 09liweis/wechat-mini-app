@@ -6,7 +6,7 @@
     <block wx:if="photos.length">
       <view class="overlayPhoto" wx:for="{{photos}}" wx:key="index">
         <image lazy-load="true" data-origin="{{item.origin}}" src="{{item.thumb}}" mode="aspectFill"></image>
-        <text class="reply">{{item.name}}</text>
+        <text wx:if="{{item.name}}" class="reply">{{item.name}}</text>
       </view>
     </block>
     <view wx:else>No Photos</view>
