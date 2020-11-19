@@ -1,5 +1,6 @@
 // pages/transactions/transactions.js
-const util = require('../../utils/util.js')
+const {wxRequest,getCurrentDate} = require('../../utils/util.js');
+const API = 'https://samliweisen.herokuapp.com/api/transactions/';
 Page({
 
   /**
@@ -12,7 +13,8 @@ Page({
     page: 0,
     transactions:[],
     total: 0,
-    hideFilters:true
+    hideFilters:true,
+    categories:[]
   },
 
   /**
@@ -24,9 +26,10 @@ Page({
     if (date) {
       currentDate = date;
     } else {
-      const {year,month} = util.getCurrentDate();
+      const {year,month} = getCurrentDate();
       currentDate = `${year}-${month}`;
     }
+    this.getCategories();
     this.setData({date:currentDate});
     this.getTransactions();
   },
@@ -138,6 +141,17 @@ Page({
     this.setData({total,transactions});
   },
 
+  getCategories: function() {
+    const url = API + 'categories';
+    const self = this;
+    wxRequest(url,{},function(res) {
+      const {statusCode, data} = res;
+      if (statusCode == 200) {
+        console.log(data);
+      }
+    });
+  },
+
   getTransactions: function() {
     let {transactions,date,page} = this.data;
     const self = this;
@@ -153,7 +167,7 @@ Page({
         page
       }
     };
-    util.wxRequest(url, opt,function(res) {
+    wxRequest(url, opt,function(res) {
       wx.hideLoading();
       self.setData({hideFilters:true});
       if (res.statusCode == 200) {
