@@ -1,11 +1,19 @@
 // pages/user/index.js
+const {wxRequest} = require('../../utils/util.js');
+const API = 'https://samliweisen.herokuapp.com/api/user/';
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    user:{
+      eml:'weisen.li@hotmail.com',
+      pwd:'12345',
+      nm: 'Sam Li'
+    },
+    err:'',
+    isLogin: true
   },
 
   /**
@@ -77,5 +85,24 @@ Page({
     ctx.strokeStyle = 'aqua';
     ctx.lineWidth = 20;
     ctx.stroke();
+  },
+
+  login: function() {
+    const {user,isLogin} = this.data;
+    const url = API + (isLogin?'login':'register');
+    const self = this;
+    wxRequest(url,{method:'POST',data:user},function(res) {
+      const {statusCode, data} = res;
+      if (statusCode == 200) {
+        console.log(data);
+      } else {
+        self.setData({err:data.msg});
+        console.log(data);
+      }
+    });
+  },
+  changeMode: function() {
+    var isLogin = !this.data.isLogin
+    this.setData({isLogin});
   }
 })
