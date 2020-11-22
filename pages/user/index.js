@@ -1,5 +1,5 @@
 // pages/user/index.js
-const {wxRequest} = require('../../utils/util.js');
+const {wxRequest,getStorage} = require('../../utils/util.js');
 const API = 'https://samliweisen.herokuapp.com/api/user/';
 Page({
 
@@ -87,17 +87,29 @@ Page({
     ctx.stroke();
   },
 
+  getDetail: function() {
+    const url = API + 'detail';
+    const self = this;
+  },
+
   login: function() {
     const {user,isLogin} = this.data;
     const url = API + (isLogin?'login':'register');
     const self = this;
     wxRequest(url,{method:'POST',data:user},function(res) {
-      const {statusCode, data} = res;
+      const {statusCode, data, header} = res;
       if (statusCode == 200) {
-        console.log(data);
+        if (header['Auth-Token']) {
+          wx.setStorage({
+            key:'auth-token',
+            data:header['Auth-Token']
+          })
+        }
+        getStorage('auth-token',function(token) {
+
+        })
       } else {
         self.setData({err:data.msg});
-        console.log(data);
       }
     });
   },
