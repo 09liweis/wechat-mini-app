@@ -79,6 +79,14 @@ const dayDiff = (date) => {
   var diff = (deadline - currentDate) / oneDay
   return parseInt(diff);
 }
+const getStorage = (key,cb) => {
+  wx.getStorage({
+    key,
+    success (res) {
+      cb(res.data);
+    }
+  })
+}
 
 module.exports = {
   formatTime: formatTime,
@@ -87,5 +95,6 @@ module.exports = {
   getCurrentDate: getCurrentDate,
   showToast: showToast,
   showLoading:showLoading,
-  dayDiff: dayDiff
+  dayDiff: dayDiff,
+  getStorage: getStorage
 }
