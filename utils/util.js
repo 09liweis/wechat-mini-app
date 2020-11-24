@@ -30,6 +30,11 @@ const showLoading = (title='加载ing') => {
 const wxRequest = (url,opt,cb) => {
   var method = 'GET';
   var data = {};
+  var header = {'content-type': 'application/json'}
+  var authToken = getStorage('auth-token');
+  if (authToken) {
+    header['Auth-Token'] = authToken;
+  }
   if (opt) {
     if (opt.method) {
       method = opt.method;
@@ -41,9 +46,7 @@ const wxRequest = (url,opt,cb) => {
   wx.request({
     url,
     method,
-    header: {
-      'content-type': 'application/json' // 默认值
-    },
+    header,
     data,
     dataType:'json',
     success(res) {
@@ -79,13 +82,8 @@ const dayDiff = (date) => {
   var diff = (deadline - currentDate) / oneDay
   return parseInt(diff);
 }
-const getStorage = (key,cb) => {
-  wx.getStorage({
-    key,
-    success (res) {
-      cb(res.data);
-    }
-  })
+const getStorage = (key) => {
+  return wx.getStorageSync(key);
 }
 
 module.exports = {
