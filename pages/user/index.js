@@ -13,7 +13,8 @@ Page({
       nm: 'Sam Li'
     },
     err:'',
-    isLogin: true
+    isLogin: true,
+    hasLogin: true
   },
 
   /**
@@ -27,7 +28,10 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-    
+    if (getStorage('auth-token')) {
+      this.setData({hasLogin:true});
+      this.getDetail();
+    }
   },
 
   /**
@@ -90,6 +94,10 @@ Page({
   getDetail: function() {
     const url = API + 'detail';
     const self = this;
+    wxRequest(url,{method:'POST'},function(res) {
+      const {statusCode,data} = res;
+      console.log(data);
+    });
   },
 
   login: function() {
@@ -98,16 +106,15 @@ Page({
     const self = this;
     wxRequest(url,{method:'POST',data:user},function(res) {
       const {statusCode, data, header} = res;
+      const {authToken} = header;
       if (statusCode == 200) {
-        if (header['Auth-Token']) {
+        if (authToken) {
           wx.setStorage({
             key:'auth-token',
-            data:header['Auth-Token']
+            data:authToken
           })
         }
-        getStorage('auth-token',function(token) {
-
-        })
+        self.getDetail();
       } else {
         self.setData({err:data.msg});
       }

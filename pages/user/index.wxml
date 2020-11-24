@@ -1,10 +1,15 @@
 <view class="container">
   <canvas canvas-id="myCanvas" style="border: 1px solid;"/>
-  <view class="tl">快登录啊死鬼</view>
-  <input wx:if="{{!isLogin}}" class="input" placeholder="Name" value="{{user.nm}}" />
-  <input class="input" placeholder="Email" value="{{user.eml}}" />
-  <input class="input" type="password" placeholder="Password" value="{{user.pwd}}" />
-  <text class="err" wx:if="err">{{err}}</text>
-  <button bindtap="login">{{isLogin?'Login':'Register'}}</button>
-  <view class="mode" bindtap="changeMode">{{isLogin?'Register':'Login'}}</view>
+  <view wx:if="hasLogin">
+    <text>Logined</text>
+  </view>
+  <view wx:else>
+    <view class="tl">快登录啊死鬼</view>
+    <input wx:if="{{!isLogin}}" class="input" placeholder="Name" value="{{user.nm}}" />
+    <input class="input" placeholder="Email" value="{{user.eml}}" />
+    <input class="input" type="password" placeholder="Password" value="{{user.pwd}}" />
+    <text class="err" wx:if="err">{{err}}</text>
+    <button bindtap="login">{{isLogin?'Login':'Register'}}</button>
+    <view class="mode" bindtap="changeMode">{{isLogin?'Register':'Login'}}</view>
+  </view>
 </view>
