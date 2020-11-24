@@ -96,7 +96,7 @@ Page({
     const self = this;
     wxRequest(url,{method:'POST'},function(res) {
       const {statusCode,data} = res;
-      self.setData({user:data});
+      self.setData({user:data.user});
     });
   },
 
