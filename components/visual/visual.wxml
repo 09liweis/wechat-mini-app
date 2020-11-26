@@ -1,6 +1,7 @@
 <view class="visual" bindtap="toDetail" data-doubanId="{{visual.douban_id}}" hover-class="visual-hover" hover-stay-time="1000">
   <view class="visual-container">
     <view class="progress">{{visual.current_episode}}/{{visual.episodes}}</view>
+    <text class="new" wx:if="{{visual.is_new}}">New</text>
     <image mode="widthFix" class="poster" src="{{visual.poster}}"></image>
     <view class="detail">
       <text class="title">{{visual.title}}</text>
