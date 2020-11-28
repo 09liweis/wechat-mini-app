@@ -14,13 +14,15 @@
 .flexbox.align-center {
   align-items: center;
 }
-.tags {
-  background-color: #fff;
-  position: fixed;
-  width: 100%;
-  left: 0rpx;
+.options {
   z-index: 1;
   top: 0rpx;
+  position: fixed;
+  left: 0rpx;
+  background-color: #fff;
+  width: 100%;
+}
+.tags {
   padding: 10rpx;
   white-space: nowrap;
   overflow-x: scroll;

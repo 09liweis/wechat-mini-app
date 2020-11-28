@@ -7,3 +7,6 @@
 .visual-item {
   width: 33.3%;
 }
+.sorts {
+  padding: 10rpx;
+}

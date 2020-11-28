@@ -1,7 +1,12 @@
 <view class="container">
-  <view class="tags">
-    <view class="tag type" bindtap="changeType">{{type}}</view>
-    <view wx:for="{{tags}}" wx:key="index" class="tag {{tag == item?'active':''}}" data-tag="{{item}}" bindtap="selectTag">{{item}}</view>
+  <view class="options">
+    <view class="tags">
+      <view class="tag type" bindtap="changeType">{{type}}</view>
+      <view wx:for="{{tags}}" wx:key="index" class="tag {{tag == item?'active':''}}" data-tag="{{item}}" bindtap="selectTag">{{item}}</view>
+    </view>
+    <view class="sorts">
+      <view wx:for="{{sorts}}" wx:key="item" class="tag {{sort == item?'active':''}}" data-sort="{{item}}" bindtap="selectSort">{{item}}</view>
+    </view>
   </view>
   <view class="visualPage">
     <visual class="visual-item" wx:for="{{visuals}}" wx:key="douban_id" visual="{{item}}"/>

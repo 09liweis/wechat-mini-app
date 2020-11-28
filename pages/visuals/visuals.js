@@ -13,7 +13,9 @@ Page({
     limit:30,
     tag:'sam',
     type:'movie',
-    tags: ['sam']
+    tags: ['sam'],
+    sorts: [],
+    sort: 'recommend'
   },
 
   /**
@@ -94,9 +96,9 @@ Page({
     const self = this;
     wxRequest(DOUBAN_TAGS,{method:'POST',data:{type}},function(res) {
       const {statusCode,data} = res;
-      var {tags} = data;
+      var {tags,sorts} = data;
       tags = ['sam'].concat(tags);
-      self.setData({tags});
+      self.setData({tags,sorts});
     });
   },
 
@@ -119,6 +121,15 @@ Page({
     })
     this.getData();
   },
+  selectSort: function(e) {
+    const {sort} = e.currentTarget.dataset;
+    this.setData({sort,page:1});
+    wx.pageScrollTo({
+      scrollTop:0,
+      duration: 0,
+    })
+    this.getData();
+  },
   showLoading: function() {
     wx.showLoading({
       title: '努力加载中',
@@ -129,10 +140,10 @@ Page({
   },
 
   getDoubans:function() {
-    const {tag,page,limit,type} = this.data;
+    const {tag,page,limit,type,sort} = this.data;
     const self = this;
     self.showLoading();
-    wxRequest(DOUBAN_MOVIES,{method:'POST',data:{tag,page,limit,type}},function(res) {
+    wxRequest(DOUBAN_MOVIES,{method:'POST',data:{sort,tag,page,limit,type}},function(res) {
       const {statusCode,data} = res;
       self.hideLoading();
       if (statusCode == 200) {
