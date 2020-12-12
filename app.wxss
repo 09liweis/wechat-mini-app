@@ -1,7 +1,13 @@
 .container {
   position: relative;
   padding: 0 20rpx;
-} 
+  background-color: #f6f6f6;
+}
+.block {
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
 .flexbox {
   display: flexbox;
 }
