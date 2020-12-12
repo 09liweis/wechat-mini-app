@@ -81,5 +81,11 @@ Page({
         self.setData({casts:data.casts});
       }
     });
+  },
+  clickCast: function(e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/visualCast/visualCast?cast_id=' + id,
+    })
   }
 })

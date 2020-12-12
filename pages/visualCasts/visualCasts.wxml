@@ -1,6 +1,6 @@
 <view class="cast-group" wx:for="{{casts}}" wx:key="index">
   <view class="tl">{{item.tl}}</view>
-  <view class="cast" wx:for="{{item.celebrities}}" wx:key="index">
+  <view class="cast" wx:for="{{item.celebrities}}" wx:key="index" data-id="{{item.id}}" bindtap="clickCast">
     <image class="cast-avt" src="{{item.avt}}" mode="widthFix" />
     <view class="cast-info">
       <view class="cast-name">{{item.name}}</view>
