@@ -8,7 +8,8 @@
     "pages/form/form",
     "pages/transactions/transactions",
     "pages/visualCasts/visualCasts",
-    "pages/user/index"
+    "pages/user/index",
+    "pages/visualCast/visualCast"
   ],
   "window": {
     "backgroundTextStyle": "dark",
