@@ -1,18 +1,21 @@
-// pages/visualCast/visualCast.js
+const { wxRequest,DOUBAN_DETAIL,showLoading } = require('../../utils/util.js');
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    cast_id:'',
+    cast:null
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    let {cast_id} = options;
+    this.setData({cast_id:cast_id || '1054453'});
+    this.getCast();
   },
 
   /**
@@ -62,5 +65,19 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  getCast:function() {
+    const {cast_id} = this.data;
+    const self = this;
+    const url = DOUBAN_DETAIL + 'cast';
+    showLoading();
+    wxRequest(url,{method:'POST',data:{cast_id}},function(res) {
+      const {statusCode,data} = res;
+      console.log(data);
+      wx.hideLoading();
+      if (statusCode == 200) {
+        self.setData({cast:data});
+      }
+    });
+  },
 })

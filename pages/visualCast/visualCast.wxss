@@ -1,1 +1,19 @@
-/* pages/visualCast/visualCast.wxss */
+.basic {
+  display: flex;
+}
+.poster {
+  flex:1;
+  margin-right: 20rpx;
+}
+.info {
+  flex:2;
+  font-size: 24rpx;
+}
+.name {
+  font-size: 40rpx;
+  margin-bottom: 20rpx;
+}
+.intro {
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
