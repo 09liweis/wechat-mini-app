@@ -1,7 +1,7 @@
 <view class="container">
   <block wx:if="cast">
     <view class="name">{{cast.name}}</view>
-    <view class="basic">
+    <view class="basic block">
       <image mode="widthFix" class="poster" src="{{cast.poster}}" />
       <view class="info">
         <view wx:for="{{cast.infos}}" wx:key="index">
@@ -9,6 +9,6 @@
         </view>
       </view>
     </view>
-    <view class="intro">{{cast.intro}}</view>
+    <view class="intro block">{{cast.intro}}</view>
   </block>
 </view>

@@ -5,11 +5,6 @@
   background-color: #f6f6f6;
   position: relative;
 }
-.block {
-  padding: 20rpx;
-  margin-bottom: 20rpx;
-  background-color: #fff;
-}
 .basic {
   display: flex;
 }
