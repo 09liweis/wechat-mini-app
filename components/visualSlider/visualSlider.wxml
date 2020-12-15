@@ -1,2 +1,6 @@
-<!--components/visualSlider/visualSlider.wxml-->
-<text>components/visualSlider/visualSlider.wxml</text>
+<view class="recommends block">
+  <view wx:for="{{visuals}}" wx:key="index" class="recommend">
+    <image class="recommend-poster" src="{{item.img}}" mode="aspectFill"></image>
+    <view class="recommend-title">{{item.title}}</view>
+  </view>
+</view>
