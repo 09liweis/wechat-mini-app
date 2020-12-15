@@ -10,5 +10,6 @@
       </view>
     </view>
     <view class="intro block">{{cast.intro}}</view>
+    <visualSlider visuals="{{cast.recent_works}}" />
   </block>
 </view>
