@@ -55,11 +55,6 @@
         <view class="reviewContent">{{item.content}}</view>
       </view>
     </view>
-    <view class="recommends block">
-      <view wx:for="{{v.recommends}}" wx:key="index" class="recommend">
-        <image class="recommend-poster" src="{{item.img}}" mode="aspectFill"></image>
-        <view class="recommend-title">{{item.title}}</view>
-      </view>
-    </view>
+    <visualSlider visuals="{{v.recommends}}" />
   </block>
 </view>
