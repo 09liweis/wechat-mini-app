@@ -13,6 +13,7 @@
   height: 300rpx;
 }
 .recommend-title {
+  font-size: 24rpx;
   position: absolute;
   bottom: 10rpx;
   left: 0;
