@@ -79,12 +79,7 @@ Page({
       url: '/pages/visualCasts/visualCasts?douban_id=' + douban_id,
     })
   },
-  openPhotos: function() {
-    const {douban_id} = this.data;
-    wx.navigateTo({
-      url: '/pages/visualPhotos/visualPhotos?douban_id=' + douban_id,
-    })
-  },
+ 
   getVisualDetail: function() {
     const {douban_id} = this.data;
     const url = DOUBAN_DETAIL+'summary';
