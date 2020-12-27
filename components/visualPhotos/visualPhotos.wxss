@@ -1,1 +1,18 @@
-/* components/visualPhotos/visualPhotos.wxss */
+.photos {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.photos > view {
+  display: inline-block;
+  margin-right: 10px;
+}
+.trailer {
+  width: 432rpx;
+}
+.photo {
+  width: 230rpx;
+}
+.photos image {
+  width: 100%;
+  height: 230rpx;
+}

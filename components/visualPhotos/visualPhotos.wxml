@@ -1,2 +1,5 @@
-<!--components/visualPhotos/visualPhotos.wxml-->
-<text>components/visualPhotos/visualPhotos.wxml</text>
+<view class="photos block" bindtap="openPhotos">
+  <view wx:for="{{photos}}" wx:key="index" wx:if="{{item.src}}" class="{{item.tp}}">
+    <image mode="widthFix" src="{{item.src}}"></image>
+  </view>
+</view>
