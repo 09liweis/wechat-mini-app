@@ -10,11 +10,10 @@ Page({
     user:{
       eml:'weisen.li@hotmail.com',
       pwd:'12345',
-      nm: 'Sam Li'
     },
     err:'',
     isLogin: true,
-    hasLogin: true
+    hasLogin: false
   },
 
   /**
@@ -96,8 +95,13 @@ Page({
     const self = this;
     wxRequest(url,{method:'POST'},function(res) {
       const {statusCode,data} = res;
-      self.setData({user:data.user});
+      self.setData({user:data.user,hasLogin:true});
     });
+  },
+
+  logout: function() {
+    wx.setStorageSync('auth-token', '');
+    this.setData({hasLogin:false,user:{eml:'',pwd:''}});
   },
 
   login: function() {
@@ -106,14 +110,9 @@ Page({
     const self = this;
     wxRequest(url,{method:'POST',data:user},function(res) {
       const {statusCode, data, header} = res;
-      const {authToken} = header;
-      if (statusCode == 200) {
-        if (authToken) {
-          wx.setStorage({
-            key:'auth-token',
-            data:authToken
-          })
-        }
+      const authToken = header['Auth-Token'];
+      if (statusCode == 200 && authToken) {
+        wx.setStorageSync('auth-token', authToken);
         self.getDetail();
       } else {
         self.setData({err:data.msg});
