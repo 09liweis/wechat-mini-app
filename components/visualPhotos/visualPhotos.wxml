@@ -1,5 +1,5 @@
 <view class="photos block" bindtap="openPhotos" data-doubanId="{{doubanId}}">
-  <view wx:for="{{photos}}" wx:key="index" wx:if="{{item.src}}" class="photo-wrapper{{item.tp}}">
-    <image class="img" mode="widthFix" src="{{item.src}}"></image>
+  <view wx:for="{{photos}}" wx:key="index" wx:if="{{item.src}}" class="photo-wrapper {{item.tp}}">
+    <image class="img" mode="aspectFill" src="{{item.src}}"></image>
   </view>
 </view>
