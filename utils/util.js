@@ -33,7 +33,7 @@ const wxRequest = (url,opt,cb) => {
   var header = {'content-type': 'application/json'}
   var authToken = getStorage('auth-token');
   if (authToken) {
-    header['Auth-Token'] = authToken;
+    header['auth-token'] = authToken;
   }
   if (opt) {
     if (opt.method) {
