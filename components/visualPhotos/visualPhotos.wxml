@@ -1,4 +1,4 @@
-<view class="photos block" bindtap="openPhotos">
+<view class="photos block" bindtap="openPhotos" data-doubanId="{{doubanId}}">
   <view wx:for="{{photos}}" wx:key="index" wx:if="{{item.src}}" class="{{item.tp}}">
     <image mode="widthFix" src="{{item.src}}"></image>
   </view>

@@ -7,7 +7,7 @@ Component({
     photos:{
       type:Array
     },
-    douban_id:{
+    doubanId:{
       type:String
     }
   },
@@ -24,7 +24,7 @@ Component({
    */
   methods: {
     openPhotos: function() {
-      const {douban_id} = this.data;
+      const douban_id = this.properties.doubanId;
       wx.navigateTo({
         url: '/pages/visualPhotos/visualPhotos?douban_id=' + douban_id,
       })
