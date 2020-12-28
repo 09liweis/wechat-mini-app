@@ -8,6 +8,7 @@ Page({
   data: {
     loading: false,
     douban_id:'',
+    cast_id:'',
     photos:[],
     types:[],
     type: 'S',
@@ -18,8 +19,13 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    let {douban_id} = options;
-    this.setData({douban_id:douban_id || '26100958'});
+    let {douban_id,cast_id} = options;
+    if (douban_id) {
+      this.setData({douban_id:douban_id || '26100958'});
+    }
+    if (cast_id) {
+      this.setData({cast_id:cast_id || '1044996'});
+    }
     this.getPhotos();
   },
 
@@ -83,10 +89,17 @@ Page({
   },
 
   getPhotos: function() {
-    const {douban_id,page,type} = this.data;
+    const {cast_id,douban_id,page,type} = this.data;
     const url = DOUBAN_DETAIL + 'photos';
     const self = this;
-    const data = {douban_id,page,type};
+    let data = {page,type};
+    if (cast_id) {
+      data.cast_id = cast_id;
+    }
+    if (douban_id) {
+      data.douban_id = douban_id;
+    }
+    console.log(data);
     showLoading();
     this.setData({loading:true});
     wxRequest(url,{method:'POST',data}, function(res) {
