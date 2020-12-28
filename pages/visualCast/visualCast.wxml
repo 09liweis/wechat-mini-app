@@ -10,6 +10,7 @@
       </view>
     </view>
     <view class="intro block">{{cast.intro}}</view>
+    <visualPhotos photos="{{cast.photos}}" castId="{{cast.cast_id}}" />
     <visualSlider visuals="{{cast.recent_works}}" />
   </block>
 </view>

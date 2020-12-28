@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "visualSlider": "../../components/visualSlider/visualSlider"
+    "visualSlider": "../../components/visualSlider/visualSlider",
+    "visualPhotos": "../../components/visualPhotos/visualPhotos"
   }
 }
