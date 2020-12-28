@@ -5,6 +5,7 @@
 .photos .photo-wrapper {
   display: inline-block;
   margin-right: 10px;
+  width: 230rpx;
 }
 .trailer {
   width: 432rpx;

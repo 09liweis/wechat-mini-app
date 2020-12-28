@@ -9,6 +9,9 @@ Component({
     },
     doubanId:{
       type:String
+    },
+    castId:{
+      type:String
     }
   },
 
@@ -25,8 +28,16 @@ Component({
   methods: {
     openPhotos: function() {
       const douban_id = this.properties.doubanId;
+      const cast_id = this.properties.castId;
+      let baseUrl = '/pages/visualPhotos/visualPhotos?';
+      if (douban_id) {
+        baseUrl += 'douban_id='+douban_id;
+      }
+      if (cast_id) {
+        baseUrl += 'cast_id='+cast_id;
+      }
       wx.navigateTo({
-        url: '/pages/visualPhotos/visualPhotos?douban_id=' + douban_id,
+        url: baseUrl
       })
     },
   }
