@@ -16,7 +16,7 @@ Page({
    */
   onLoad: function (options) {
     let {douban_id} = options;
-    this.setData({douban_id:douban_id || '26100958'});
+    this.setData({douban_id:douban_id || '27073752'});
     this.getVisualDetail();
   },
 
@@ -89,6 +89,7 @@ Page({
       wx.hideLoading();
       const {statusCode,data} = res;
       if (statusCode == 200) {
+        console.log(data);
         self.setData({v:data});
         wx.setNavigationBarTitle({
           title: data.title,
