@@ -1,5 +1,5 @@
 // pages/user/index.js
-const {wxRequest,getStorage} = require('../../utils/util.js');
+const {wxRequest,getStorage,showLoading} = require('../../utils/util.js');
 const API = 'https://samliweisen.herokuapp.com/api/user/';
 Page({
 
@@ -8,8 +8,9 @@ Page({
    */
   data: {
     user:{
-      eml:'weisen.li@hotmail.com',
-      pwd:'12345',
+      eml:'',
+      pwd:'',
+      nm:''
     },
     err:'',
     isLogin: true,
@@ -108,7 +109,9 @@ Page({
     const {user,isLogin} = this.data;
     const url = API + (isLogin?'login':'register');
     const self = this;
+    showLoading('加载中');
     wxRequest(url,{method:'POST',data:user},function(res) {
+      wx.hideLoading();
       const {statusCode, data, header} = res;
       const authToken = header['Auth-Token'];
       if (statusCode == 200 && authToken) {
