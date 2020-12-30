@@ -105,6 +105,14 @@ Page({
     this.setData({hasLogin:false,user:{eml:'',pwd:''}});
   },
 
+  handleInput: function(e) {
+    const val = e.detail.value;
+    const key = e.currentTarget.id;
+    let user = this.data.user;
+    user[key] = val;
+    this.setData(user);
+  },
+
   login: function() {
     const {user,isLogin} = this.data;
     const url = API + (isLogin?'login':'register');

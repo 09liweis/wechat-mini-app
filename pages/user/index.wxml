@@ -8,9 +8,9 @@
   </view>
   <view wx:else>
     <view class="tl">快登录啊死鬼</view>
-    <input wx:if="{{!isLogin}}" class="input" placeholder="Name" value="{{user.nm}}" />
-    <input class="input" placeholder="Email" value="{{user.eml}}" />
-    <input class="input" type="password" placeholder="Password" value="{{user.pwd}}" />
+    <input wx:if="{{!isLogin}}" class="input" placeholder="Name" value="{{user.nm}}" bindinput="handleInput" id="nm" />
+    <input class="input" placeholder="Email" value="{{user.eml}}" bindinput="handleInput" id="eml" />
+    <input class="input" type="password" placeholder="Password" value="{{user.pwd}}" bindinput="handleInput" id="pwd" />
     <text class="err" wx:if="err">{{err}}</text>
     <button bindtap="login">{{isLogin?'Login':'Register'}}</button>
     <view class="mode" bindtap="changeMode">{{isLogin?'Register':'Login'}}</view>
