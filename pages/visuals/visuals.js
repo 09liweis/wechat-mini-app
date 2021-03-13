@@ -104,7 +104,6 @@ Page({
 
   getData: function() {
     const {tag} = this.data;
-    this.setData({visuals:[]});
     if (tag != 'sam') {
       this.getDoubans();
     } else {
