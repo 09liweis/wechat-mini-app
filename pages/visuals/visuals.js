@@ -86,7 +86,7 @@ Page({
       type = 'movie';
       tag = 'sam';
     }
-    this.setData({type,tag});
+    this.setData({type,tag,page:1});
     this.getTags();
     this.getData();
   },
