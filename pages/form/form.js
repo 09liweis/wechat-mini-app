@@ -242,7 +242,11 @@ Page({
       url = api + todo._id;
       title = '更新成功';
     }
+    wx.showLoading({
+      title: '提交中(^ o ^)',
+    });
     wxRequest(url,{method,data},function(res) {
+      wx.hideLoading();
       const {statusCode} = res;
       if (statusCode == 200) {
         const pages = getCurrentPages();
