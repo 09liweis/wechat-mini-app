@@ -1,2 +1,14 @@
 <!--pages/home.wxml-->
-<text>pages/home.wxml</text>
+<view id="dashboard">
+  <view class="card">
+    <text class="card-title">Weather</text>
+  </view>
+
+  <view class="card">
+    <text class="card-title">Gas Price</text>
+  </view>
+
+  <view class="card">
+    <text class="card-title">Currency</text>
+  </view>
+</view>

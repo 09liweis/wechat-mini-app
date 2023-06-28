@@ -1,1 +1,15 @@
 /* pages/home.wxss */
+#dashboard {
+  padding: 20rpx;
+}
+.card {
+  padding: 20rpx;
+  border: 1px solid #FCAEAE;
+  border-radius: 10px;
+  margin-bottom: 20rpx;
+  background-color: #FF8989;
+}
+.card-title {
+  color: #fff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
