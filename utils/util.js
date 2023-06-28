@@ -89,7 +89,7 @@ const getStorage = (key) => {
 module.exports = {
   formatTime: formatTime,
   wxRequest: wxRequest,
-  DOUBAN_DETAIL: 'https://samliweisen.herokuapp.com/api/visuals/',
+  DOUBAN_DETAIL: 'https://samliweisen.onrender.com/api/movies/',
   getCurrentDate: getCurrentDate,
   showToast: showToast,
   showLoading:showLoading,

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/visuals/visuals",
     "pages/visualPhotos/visualPhotos",
     "pages/visualDetail/visualDetail",
@@ -14,7 +15,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#2e7d32",
-    "navigationBarTitleText": "森计划",
+    "navigationBarTitleText": "森生活",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },
@@ -29,16 +30,8 @@
     "selectedColor": "#f10b2e",
     "list": [
       {
-        "pagePath": "pages/visuals/visuals",
-        "text": "森影视"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "Todo"
-      },
-      {
-        "pagePath": "pages/transactions/transactions",
-        "text": "森账单"
+        "pagePath": "pages/home/home",
+        "text": "主页"
       },
       {
         "pagePath": "pages/user/index",

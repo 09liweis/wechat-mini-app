@@ -36,6 +36,6 @@ App({
   globalData: {
     amapKey:'25e7f2b3024d4a2af6e12fcae13c84b3',
     userInfo: null,
-    api:'https://samliweisen.herokuapp.com/api/todos/'
+    api:'https://samliweisen.onrender.com/api/todos/'
   }
 })

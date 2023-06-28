@@ -1,7 +1,7 @@
 // pages/visuals.js
 const {wxRequest} = require('../../utils/util.js')
-const DOUBAN_MOVIES = 'https://samliweisen.herokuapp.com/api/visuals/douban';
-const DOUBAN_TAGS = 'https://samliweisen.herokuapp.com/api/visuals/douban/tags';
+const DOUBAN_MOVIES = 'https://samliweisen.onrender.com/api/movies/douban';
+const DOUBAN_TAGS = 'https://samliweisen.onrender.com/api/movies/douban/tags';
 Page({
 
   /**
@@ -159,7 +159,7 @@ Page({
   },
 
   getVisuals: function() {
-    let url = 'https://what-i-watched.herokuapp.com/api/visuals';
+    let url = 'https://samliweisen.onrender.com/api/movies';
     const {page,limit} = this.data;
     url += `?page=${page}&limit=${limit}`;
     const self = this;

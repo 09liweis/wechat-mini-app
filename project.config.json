@@ -1,7 +1,8 @@
 {
   "description": "Project configuration file",
   "packOptions": {
-    "ignore": []
+    "ignore": [],
+    "include": []
   },
   "setting": {
     "urlCheck": true,
@@ -16,49 +17,45 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
+    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": false,
     "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "useApiHostProcess": true,
+    "condition": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.0.4",
+  "libVersion": "2.32.3",
   "appid": "wxe55be93b22ee2002",
   "projectname": "森计划",
   "cloudfunctionTemplateRoot": "",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "scripts": {},
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
     "miniprogram": {
       "list": [
         {
-          "name": "pages/visualDetail/visualDetail",
-          "pathName": "pages/visualDetail/visualDetail",
+          "name": "pages/home/home",
+          "pathName": "pages/home/home",
+          "query": "",
           "scene": null
         }
       ]
     }
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
   }
 }
