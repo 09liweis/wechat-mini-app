@@ -10,7 +10,9 @@
     "pages/transactions/transactions",
     "pages/visualCasts/visualCasts",
     "pages/user/index",
-    "pages/visualCast/visualCast"
+    "pages/visualCast/visualCast",
+    "pages/rooms/rooms",
+    "pages/room/room"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -32,6 +34,10 @@
       {
         "pagePath": "pages/home/home",
         "text": "主页"
+      },
+      {
+        "pagePath": "pages/rooms/rooms",
+        "text": "房间"
       },
       {
         "pagePath": "pages/user/index",
