@@ -1,2 +1,25 @@
-<!--pages/room/room.wxml-->
-<text>Room Detail</text>
+<view class="container">
+  <text>Create a room</text>
+  <view class="input-group">
+    <input placeholder="Room Name" class="input" value="{{nm}}" bindinput="bindRoomNameChange" />
+  </view>
+
+  <view class="input-group">
+    <picker mode="date" value="{{startDate}}" bindchange="bindStartDateChange">
+      <view class="picker">
+        Start Date: {{startDate}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="input-group">
+    <picker mode="date" value="{{endDate}}" bindchange="bindEndDateChange">
+      <view class="picker">
+        End Date: {{endDate}}
+      </view>
+    </picker>
+  </view>
+
+
+  <button bindtap="handleRoomSubmit">Add</button>
+</view>

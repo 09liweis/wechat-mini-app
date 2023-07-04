@@ -1,1 +1,10 @@
 /* pages/rooms/rooms.wxss */
+#rooms {
+  padding: 10rpx;
+}
+.room {
+  border: 2px solid #8F71FF;
+  padding: 10rpx;
+  border-radius: 4px;
+  margin-bottom: 10rpx;
+}

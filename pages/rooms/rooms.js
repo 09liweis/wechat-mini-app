@@ -1,4 +1,4 @@
-const { wxRequest } = require("../../utils/util")
+const { wxRequest, roomRequest } = require("../../utils/util")
 
 // pages/rooms/rooms.js
 Page({
@@ -14,14 +14,20 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-    let url = 'https://samliweisen.onrender.com/api/rooms';
-    wxRequest(url,{},function(res){
-      console.log(res);
-    });
+    this.fetchRooms();
+  },
 
-    wxRequest('https://api.openweathermap.org/data/2.5/weather?appid=323b480b81057a727bed54d9532159d6&lat=43.8288928&lon=-79.2789297&units=metric',{},function(res){
-      console.log(res);
+  fetchRooms:function() {
+    roomRequest('',{},(res)=>{
+      this.setData({rooms:res.data});
     });
+  },
+
+  toRoomPage:function(e) {
+    const roomId = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/room/room?id='+roomId,
+    })
   },
 
   /**

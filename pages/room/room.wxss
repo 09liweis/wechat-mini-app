@@ -1,1 +1,8 @@
 /* pages/room/room.wxss */
+.input-group {
+  margin-bottom:20rpx;
+}
+.input {
+  padding:20rpx;
+  border:1rpx solid #ccc;
+}

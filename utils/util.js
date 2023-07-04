@@ -27,6 +27,12 @@ const showLoading = (title='加载ing') => {
   })
 }
 
+const SERVER_API_HOST = 'https://samliweisen.onrender.com/api/';
+
+const roomRequest = (endpoint,opt,cb)=> {
+  wxRequest(`${SERVER_API_HOST}rooms/${endpoint}`,opt,cb);
+}
+
 const wxRequest = (url,opt,cb) => {
   var method = 'GET';
   var data = {};
@@ -89,6 +95,7 @@ const getStorage = (key) => {
 module.exports = {
   formatTime: formatTime,
   wxRequest: wxRequest,
+  roomRequest,
   DOUBAN_DETAIL: 'https://samliweisen.onrender.com/api/movies/',
   getCurrentDate: getCurrentDate,
   showToast: showToast,

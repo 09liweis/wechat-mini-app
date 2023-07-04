@@ -1,3 +1,5 @@
+const { wxRequest } = require("../../utils/util");
+
 // pages/home.js
 Page({
 
@@ -12,7 +14,9 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-
+    wxRequest('https://api.openweathermap.org/data/2.5/weather?appid=323b480b81057a727bed54d9532159d6&lat=43.8288928&lon=-79.2789297&units=metric',{},function(res){
+      // console.log(res);
+    });
   },
 
   /**

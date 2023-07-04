@@ -1,3 +1,7 @@
 <!--pages/rooms/rooms.wxml-->
-<text>pages/rooms/rooms.wxml</text>
-<view bindtap="toForm" id="add-btn" hover-class="add-hover" hover-stay-time="1500">+</view>
+<view id="rooms">
+  <view class="room" wx:for="{{rooms}}" wx:key="_id" bindtap="toRoomPage" data-id="{{item._id}}">
+    <text>{{item.nm}}</text>
+  </view>
+  <view bindtap="toRoomPage" id="add-btn" hover-class="add-hover" hover-stay-time="1500">+</view>
+</view>
