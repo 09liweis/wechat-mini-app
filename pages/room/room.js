@@ -25,6 +25,11 @@ Page({
     this.setData({nm:e.detail.value});
   },
 
+  bindSwitchChange:function(e) {
+    this.setData({isAvailable: e.detail.value});
+    console.log(e.detail, this.data.isAvailable);
+  },
+
   bindStartDateChange:function(e) {
     this.setData({startDate:e.detail.value});
   },
@@ -32,6 +37,10 @@ Page({
     this.setData({endDate:e.detail.value});
   },
   handleRoomSubmit:function(e) {
+    if (!this.data.nm) {
+      showToast({title:'房间名字不为空',icon:'fail'})
+      return;
+    }
     wx.showLoading({
       title: '提交中(^ o ^)',
     });
@@ -39,7 +48,12 @@ Page({
       method:'POST',
       data:this.data
     };
-    roomRequest('',opt,(res)=>{
+    let api = '';
+    if (this.data._id) {
+      opt.method = 'PUT';
+      api = '/'+this.data._id;
+    }
+    roomRequest(api,opt,(res)=>{
       const pages = getCurrentPages();
       const parent = pages[0];
       parent.fetchRooms();
