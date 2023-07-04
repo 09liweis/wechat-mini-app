@@ -15,7 +15,7 @@ Page({
   onLoad(options) {
     const roomId = options.id;
     if (roomId !== 'undefined') {
-      roomRequest(roomId,{},(res)=>{
+      roomRequest(roomId,{},(err,res)=>{
         this.setData(res.data);
       });
     }
@@ -53,7 +53,7 @@ Page({
       opt.method = 'PUT';
       api = '/'+this.data._id;
     }
-    roomRequest(api,opt,(res)=>{
+    roomRequest(api,opt,(err,res)=>{
       const pages = getCurrentPages();
       const parent = pages[0];
       parent.fetchRooms();

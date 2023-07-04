@@ -18,7 +18,7 @@ Page({
   },
 
   fetchRooms:function() {
-    roomRequest('',{},(res)=>{
+    roomRequest('',{},(err,res)=>{
       this.setData({rooms:res.data});
     });
   },

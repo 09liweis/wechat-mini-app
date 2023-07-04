@@ -13,3 +13,13 @@
   color: #fff;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+.movies-container {
+  margin-top: 100rpx;
+  font-size: 24rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.movie-item {
+  width: 33.3%;
+}

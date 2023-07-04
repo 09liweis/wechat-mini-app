@@ -2,6 +2,9 @@
 <view id="dashboard">
   <view class="card">
     <text class="card-title">Weather</text>
+    <view>{{weather.city}}</view>
+    <text>温度: {{weather.temp}}</text>
+    <text>湿度: {{weather.humidity}}%</text>
   </view>
 
   <view class="card">
@@ -10,5 +13,9 @@
 
   <view class="card">
     <text class="card-title">Currency</text>
+  </view>
+
+  <view class="movies-container">
+    <visual class="movie-item" wx:for="{{movies}}" wx:key="douban_id" visual="{{item}}"/>
   </view>
 </view>

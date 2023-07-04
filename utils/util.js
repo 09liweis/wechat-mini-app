@@ -33,6 +33,10 @@ const roomRequest = (endpoint,opt,cb)=> {
   wxRequest(`${SERVER_API_HOST}rooms/${endpoint}`,opt,cb);
 }
 
+const movieRequest = (endpoint,opt,cb)=> {
+  wxRequest(`${SERVER_API_HOST}movies/${endpoint}`,opt,cb);
+}
+
 const wxRequest = (url,opt,cb) => {
   var method = 'GET';
   var data = {};
@@ -56,7 +60,7 @@ const wxRequest = (url,opt,cb) => {
     data,
     dataType:'json',
     success(res) {
-      return cb(res);
+      return cb(null,res);
     },
     fail(res) {
       return cb(res);
@@ -92,10 +96,35 @@ const getStorage = (key) => {
   return wx.getStorageSync(key);
 }
 
+const getUserLocation = (cb) => {
+  wx.authorize({
+    scope: 'scope.userLocation',
+    success: (res) => {
+      wx.getLocation({
+        success: function (res) {
+          console.log(res);
+          const lat = res.latitude;
+          const lng = res.longitude;
+          return cb(null,{lat,lng})
+        },
+        fail:(res)=>{
+          console.log('fail',res);
+          return cb(res);
+        }
+      })
+    },
+    fail: (res) => {
+      return cb(res);
+    },
+  });
+}
+
 module.exports = {
   formatTime: formatTime,
-  wxRequest: wxRequest,
+  wxRequest,
+  getUserLocation,
   roomRequest,
+  movieRequest,
   DOUBAN_DETAIL: 'https://samliweisen.onrender.com/api/movies/',
   getCurrentDate: getCurrentDate,
   showToast: showToast,
