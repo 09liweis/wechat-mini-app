@@ -40,12 +40,7 @@
       {
         "pagePath": "pages/rooms/rooms",
         "text": "房间"
-      },
-      {
-        "pagePath": "pages/user/index",
-        "text": "我的"
       }
-    ],
-    "current": 0
+    ]
   }
 }

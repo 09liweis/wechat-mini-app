@@ -15,6 +15,7 @@
     <text class="card-title">Currency</text>
   </view>
 
+  <text>院线电影</text>
   <view class="movies-container">
     <visual class="movie-item" wx:for="{{movies}}" wx:key="douban_id" visual="{{item}}"/>
   </view>

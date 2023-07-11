@@ -1,3 +1,6 @@
 {
-  "projectname": "森生活"
+  "projectname": "森生活",
+  "setting": {
+    "compileHotReLoad": true
+  }
 }

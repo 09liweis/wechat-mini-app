@@ -108,7 +108,6 @@ const getUserLocation = (cb) => {
           return cb(null,{lat,lng})
         },
         fail:(res)=>{
-          console.log('fail',res);
           return cb(res);
         }
       })
