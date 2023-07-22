@@ -1,2 +1,10 @@
-<!--pages/invitation/invitation.wxml-->
-<text>pages/invitation/invitation.wxml</text>
+<view class="flip-box {{isFlipped?'isFlipped':''}}" catchtap="flipCard" >
+  <view class="flip-box-inner">
+    <view class="flip-box-front">
+      <image src="https://static.wikia.nocookie.net/ccs/images/3/3d/SakuraNameless.jpg"/>
+    </view>
+    <view class="flip-box-back">
+      <image src="https://static.tvtropes.org/pmwiki/pub/images/clowearthy.png" mode=""/>
+    </view>
+  </view>
+</view>

@@ -5,7 +5,11 @@ Page({
    * Page initial data
    */
   data: {
+    isFlipped:false
+  },
 
+  flipCard:function() {
+    this.setData({isFlipped:!this.data.isFlipped});
   },
 
   /**
