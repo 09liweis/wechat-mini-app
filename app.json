@@ -12,7 +12,8 @@
     "pages/user/index",
     "pages/visualCast/visualCast",
     "pages/rooms/rooms",
-    "pages/room/room"
+    "pages/room/room",
+    "pages/invitation/invitation"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -28,7 +29,9 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
-  "requiredPrivateInfos": ["chooseLocation"],
+  "requiredPrivateInfos": [
+    "chooseLocation"
+  ],
   "tabBar": {
     "color": "#666666",
     "selectedColor": "#f10b2e",
@@ -36,6 +39,10 @@
       {
         "pagePath": "pages/home/home",
         "text": "主页"
+      },
+      {
+        "pagePath": "pages/invitation/invitation",
+        "text": "婚礼请柬"
       },
       {
         "pagePath": "pages/rooms/rooms",
