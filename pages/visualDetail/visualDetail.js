@@ -1,5 +1,5 @@
 const { wxRequest } = require('../../utils/util.js');
-const DOUBAN_DETAIL = 'https://samliweisen.herokuapp.com/api/visuals/';
+const DOUBAN_DETAIL = 'https://samliweisen.onrender.com/api/movies/douban/';
 // pages/visualDetail/visualDetail.js
 Page({
 
@@ -82,14 +82,13 @@ Page({
  
   getVisualDetail: function() {
     const {douban_id} = this.data;
-    const url = DOUBAN_DETAIL+'summary';
+    const url = DOUBAN_DETAIL+douban_id;
     const self = this;
     this.showLoading();
-    wxRequest(url,{method:'POST',data:{douban_id}},function(res){
+    wxRequest(url,{method:'GET',data:{}},function(err,res){
       wx.hideLoading();
       const {statusCode,data} = res;
       if (statusCode == 200) {
-        console.log(data);
         self.setData({v:data});
         wx.setNavigationBarTitle({
           title: data.title,
