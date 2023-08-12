@@ -4,9 +4,9 @@
     "pages/visuals/visuals",
     "pages/visualPhotos/visualPhotos",
     "pages/visualDetail/visualDetail",
-    "pages/index/index",
+    "pages/todos/index",
     "pages/logs/logs",
-    "pages/form/form",
+    "pages/todoForm/form",
     "pages/transactions/transactions",
     "pages/visualCasts/visualCasts",
     "pages/user/index",
@@ -39,6 +39,10 @@
       {
         "pagePath": "pages/home/home",
         "text": "主页"
+      },
+      {
+        "pagePath": "pages/todos/index",
+        "text": "Todo"
       },
       {
         "pagePath": "pages/invitation/invitation",

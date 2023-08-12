@@ -2,7 +2,7 @@
 //获取应用实例
 const { wxRequest, dayDiff } = require('../../utils/util.js');
 const app = getApp()
-const TODO_API = 'https://samliweisen.herokuapp.com/api/todos/';
+const TODO_API = 'https://samliweisen.onrender.com/api/todos/';
 const DEL_BTN_WIDTH = 240;
 
 Page({
@@ -69,7 +69,7 @@ Page({
   },
   getTodos:function() {
     const self = this;
-    wxRequest(TODO_API,{},function(res) {
+    wxRequest(TODO_API,{},function(err,res) {
       const {statusCode,data} = res;
       if (statusCode == 200) {
         for (let i = 0; i < data.length; i++) {
@@ -104,7 +104,8 @@ Page({
     const url = TODO_API+id;
     const self = this;
     const todos = this.data.todos;
-    wxRequest(url,{method:'DELETE',data:{}},function(res) {
+    wxRequest(url,{method:'DELETE',data:{}},function(err,res) {
+      console.log(res);
       const {statusCode,data} = res;
       if (statusCode == 200) {
         todos.splice(index,1);
